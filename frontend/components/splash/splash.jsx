@@ -5,14 +5,17 @@ import {
 
 class Splash extends React.Component {
 
-  render() {
-    return (
-      <div>
-        <h1>Netflix</h1>
-        <Link to="/signin">Sign in</Link>
-      </div>
-    );
-  }
-}
+
+
+    render() {
+        return (
+        <div>
+            <h1>Netflix</h1>
+            <Link to="/signin">Sign in</Link>
+            <button className='demobutton'>Demo Login</button>   
+        </div>
+        );
+    }
+    }
 
 export default Splash;

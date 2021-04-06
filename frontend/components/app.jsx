@@ -11,7 +11,7 @@ import {
 import SignInFormContainer from './session_form/signin_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import MovieIndexContainer from './movies/movie_index_container';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 import HeaderContainer from './header/header_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -20,7 +20,7 @@ const App = () => (
     <header>
       <ProtectedRoute component={HeaderContainer} />
     </header>
-    <AuthRoute component={Splash} />
+    <AuthRoute component={SplashContainer} />
     <Switch>
       <AuthRoute exact path="/signin" component={SignInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />

@@ -34,10 +34,9 @@ class SessionForm extends React.Component {
     );
   }
 
-  // renderErrors(){
-  //     return (<div className="errors">hello {this.props.errors[0]}</div>)
-  // }
-
+  componentWillUnmount(){
+    this.props.deleteErrors()
+  }
   render() {
     return (
       <div className="signin-form-container">
