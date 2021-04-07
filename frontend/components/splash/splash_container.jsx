@@ -5,7 +5,7 @@ import Splash from './splash';
 
 
 const mapDispatchToProps = dispatch => ({
-        signin: () => dispatch(signin({username: 'gino123',password: '123456'}))
+        signin: (user) => dispatch(signin(user))
 })
 
 
