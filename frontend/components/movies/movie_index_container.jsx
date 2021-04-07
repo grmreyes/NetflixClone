@@ -7,9 +7,9 @@ import { signin } from '../../actions/session_actions';
 class MovieIndex extends React.Component{
     render(){
         return(
-            <h1>
-                movies
-            </h1>
+            <div className="movie-index">
+                <h1> Movies go here.</h1>
+            </div>
         )
     }
 }

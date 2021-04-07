@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {signin} from '../../actions/session_actions';
-import Splash from './splash';
+import Greeting from './greeting';
 
 
 
@@ -9,4 +9,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(null, mapDispatchToProps)(Splash)
+export default connect(null, mapDispatchToProps)(Greeting)

@@ -1,0 +1,86 @@
+.signin-form-container{
+    display:block;
+    margin-right: auto;
+    margin-left: auto;
+    position:absolute;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 4px;
+    color: white;
+    width: 300px;
+    height: 470px;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 30px;
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.signin-form-container h1{
+    font-size: 32px;
+    margin-top: 10px;
+}
+
+.signin-input{
+    position: relative;
+    border-radius: 4px;
+    border: 0;
+    background: #333;
+    color: #fff;
+    height: 20px;
+    width: 300px;
+    padding: 10px;
+    font-size: 12px;
+    margin-top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+.session-submit{
+    position: relative;
+    background: #e50914;
+    color: white;
+    font-size: 16px;
+    border-style: none;
+    border-radius: 4px;
+    margin-top: 30px;
+    height: 40px;
+    width: 320px;
+    padding: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.session-submit:hover{
+    cursor: pointer;
+}
+
+.session-question{
+    color: #737373;
+    font-size: 13px;
+    margin-top:15px;
+
+}
+.question-link{
+    color: white;
+    text-decoration: none;
+}
+.question-link:hover{
+    text-decoration: underline;
+}
+
+.error-list{
+    margin-top: 20px;
+    font-size: 13px;
+    color: #e50914;
+}
+
+.close-login{
+    color:#e50914;
+    text-decoration: none;
+    position: relative;
+    top: 90%;
+    left: 0;
+    font-size: 13px;
+}

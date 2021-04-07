@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       username: '',
-      password: ''
+      password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -24,7 +25,7 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return(
-      <ul>
+      <ul className="error-list">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}
@@ -40,9 +41,9 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div className="signin-form-container">
-        <form onSubmit={this.handleSubmit} className="signin-form-box">
-          <h2>{this.props.formType}</h2>
-          <br/>
+        <Link className="close-login" to="/">&#60; back</Link>
+        <h1>{this.props.formType}</h1>     
+          <form onSubmit={this.handleSubmit}>
           {this.renderErrors()}
           <div className="signin-form">
             <br/>
@@ -62,7 +63,9 @@ class SessionForm extends React.Component {
             <br/>
             <input className="session-submit" type="submit" value={this.props.formType} />
             <br/>
-            {this.props.question}{this.props.navLink}
+            <div className="session-question">
+              {this.props.question}{this.props.navLink}
+            </div>
           </div>
         </form>
       </div>

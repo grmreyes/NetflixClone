@@ -11,12 +11,11 @@ class Header extends React.Component {
 
   render() {
     return (
-        <div>        
-            <Link to="/" className="header-link">
-            <h1>Netflix</h1>
+        <div className = "header">        
+            <Link to="/">
+            <img src="https://i.imgur.com/rXPv4BN.png" className="header-logo" />
             </Link>
-            <h2>{this.props.currentUser.username}!</h2>
-            <button onClick={this.props.logout}>Log Out</button>
+            <button onClick={this.props.logout} className="logout">Log Out</button>
         </div>
 
     );
@@ -24,3 +23,5 @@ class Header extends React.Component {
 }
 
 export default Header;
+
+// for username: <h2>{this.props.currentUser.username}!</h2>

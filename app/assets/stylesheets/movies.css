@@ -1,0 +1,13 @@
+.movie-index{
+    background-color: black;
+    padding-top: 80px;
+    padding-left: 80px;
+    padding-right: 80px;
+    height: 1000px;
+    color: white;
+}
+
+.movie-index h1{
+    font-size: 3.125rem;
+    margin: 10px;
+}

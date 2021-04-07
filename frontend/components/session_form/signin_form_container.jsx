@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
   return {
     errors: state.errors,
     formType: 'Sign In',
-    question: 'New to Netflix?',
-    navLink: <Link to="/signup">Sign up now.</Link>,
+    question: 'New to Nicflix?  ',
+    navLink: <Link className="question-link" to="/signup">Sign up now.</Link>,
   };
 };
 
