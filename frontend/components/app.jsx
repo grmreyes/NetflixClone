@@ -13,6 +13,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import MovieIndexContainer from './movies/movie_index_container';
 import Splash from './splash/splash';
 import HeaderContainer from './header/header_container';
+import MovieShowContainer from './movies/movie_show_container';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -22,6 +23,7 @@ const App = () => (
     </header>
     <AuthRoute component={Splash} />
     <Switch>
+      <Route path="/movies/:movieId" component={MovieShowContainer} />
       <AuthRoute exact path="/signin" component={SignInFormContainer} />
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <ProtectedRoute exact path="/browse" component={MovieIndexContainer} />

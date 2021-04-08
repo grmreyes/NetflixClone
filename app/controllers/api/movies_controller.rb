@@ -13,7 +13,7 @@ class Api::MoviesController < ApplicationController
   
     def show
         
-      #@bench = Bench.find(params[:id])
+      @movie = Movie.find(params[:id])
       render :show
     end
   

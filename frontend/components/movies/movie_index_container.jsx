@@ -1,17 +1,15 @@
-import { connect } from 'react-redux';
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { signin } from '../../actions/session_actions';
+import {connect} from 'react-redux';
+import {fetchMovies} from '../../actions/movie_actions';
+import {selectMovies} from '../../reducers/selectors';
+import MovieIndex from './movie_index';
 
 
-class MovieIndex extends React.Component{
-    render(){
-        return(
-            <div className="movie-index">
-                <h1> Movies go here.</h1>
-            </div>
-        )
-    }
-}
+const mapStateToProps = state => ({
+  movies: selectMovies(state),
+})
 
-export default MovieIndex
+const mapDispatchToProps = dispatch => ({
+    fetchMovies: () => dispatch(fetchMovies())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieIndex)
