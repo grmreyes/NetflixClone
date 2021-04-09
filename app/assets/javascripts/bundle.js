@@ -645,17 +645,23 @@ var MovieShow = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(MovieShow, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      console.log(this.props.movie);
-    }
-  }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, this.props.movie.title, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "test",
-        src: this.props.movie.photo_url
-      }));
+      // var cip = $(".big-video").hover( hoverVideo, hideVideo );
+      // function hoverVideo(e) {  
+      //   $('big-video', this).get(0).play(); 
+      // }
+      // function hideVideo(e) {
+      //   $('big-video', this).get(0).pause(); 
+      // }
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
+        controls: true,
+        autoPlay: true,
+        className: "big-video"
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
+        src: this.props.movie.video_url,
+        type: "video/mp4"
+      }), " "));
     }
   }]);
 
@@ -745,6 +751,9 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+/* <Link to={`/movies/${this.props.movie.id}`}>
+<img className="movie-thumb" src={this.props.movie.photo_url}/>
+</Link> */
 
 var MovieThumb = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieThumb, _React$Component);
@@ -760,14 +769,25 @@ var MovieThumb = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieThumb, [{
     key: "render",
     value: function render() {
+      $(document).ready(function () {
+        $(".thumb-vid").on("mouseover", function (event) {
+          this.play();
+        }).on('mouseout', function (event) {
+          //this.currentTime = 0; this.pause();
+          this.load();
+        });
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "movie-thumb-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/movies/".concat(this.props.movie.id)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "movie-thumb",
-        src: this.props.movie.photo_url
-      })));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
+        className: "thumb-vid",
+        poster: this.props.movie.photo_url
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
+        src: this.props.movie.video_url,
+        type: "video/mp4"
+      }), " ")));
     }
   }]);
 
@@ -830,14 +850,25 @@ var MovieThumbLast = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieThumbLast, [{
     key: "render",
     value: function render() {
+      $(document).ready(function () {
+        $(".thumb-vid").on("mouseover", function (event) {
+          this.play();
+        }).on('mouseout', function (event) {
+          //this.currentTime = 0; this.pause();
+          this.load();
+        });
+      });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
         className: "movie-thumb-container-last"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/movies/".concat(this.props.movie.id)
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        className: "movie-thumb",
-        src: this.props.movie.photo_url
-      })));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
+        className: "thumb-vid",
+        poster: this.props.movie.photo_url
+      }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
+        src: this.props.movie.video_url,
+        type: "video/mp4"
+      }), " ")));
     }
   }]);
 

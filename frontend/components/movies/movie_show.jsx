@@ -8,15 +8,21 @@ class MovieShow extends React.Component{
     super(props)
   }
 
-  componentDidMount(){
-    console.log(this.props.movie)
-  }
+
   
   render(){
+  // var cip = $(".big-video").hover( hoverVideo, hideVideo );
+
+  // function hoverVideo(e) {  
+  //   $('big-video', this).get(0).play(); 
+  // }
+  
+  // function hideVideo(e) {
+  //   $('big-video', this).get(0).pause(); 
+  // }
   return(
     <div>
-      {this.props.movie.title}
-      <img className="test" src={this.props.movie.photo_url}/>
+      <video controls autoPlay className="big-video"> <source src={this.props.movie.video_url} type="video/mp4" /> </video> 
     </div>
   )}
 }

@@ -2,13 +2,16 @@
     background-color: #141414;
     padding-top: 80px;
     padding-left: 65px;
-    height: 1000px;
+    height: 1200px;
     color: white;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .movie-index h1{
-    font-size: 3.125rem;
-    margin: 10px;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    
 }
 
 .movie-thumb{
@@ -21,7 +24,6 @@
 .movie-thumb-row{
     display: flex;
     width:100%;
-    max-width: 100%
 }
 .movie-thumb-container{
     transition: transform 1s ;
@@ -43,5 +45,11 @@
 .movie-thumb-container-last:hover{
     transform: scale(1.5) translate(-40px, 0px);
     z-index: 2;
+}
+
+.thumb-vid{
+    height: auto;
+    width: 300px;
+    border-radius: 4px;
 }
 

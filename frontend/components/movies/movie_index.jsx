@@ -58,6 +58,9 @@ class MovieIndex extends React.Component{
         return(
             
             <div className="movie-index">
+                {/* {this.moviesAction.slice(0,1).map((movie) => (
+                        <video autoPlay controls> <source src={movie.video_url}  type="video/mp4" /> </video>))
+                 } */}
                 <h1>Action</h1>
                 <ul className="movie-thumb-row">
                     {this.moviesAction.slice(0,5).map((movie) => (

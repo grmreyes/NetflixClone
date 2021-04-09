@@ -6,6 +6,18 @@
 #   movies= Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#clear tables
+
+User.delete_all
+Movie.delete_all
+Genre.delete_all
+Label.delete_all
+
+ActiveRecord::Base.connection.reset_pk_sequence!('users')
+ActiveRecord::Base.connection.reset_pk_sequence!('movies')
+ActiveRecord::Base.connection.reset_pk_sequence!('genres')
+ActiveRecord::Base.connection.reset_pk_sequence!('labels')
+
 #user
 u1=User.new
 u1.username='ncage'
@@ -180,6 +192,45 @@ m16.photo.attach(io: File.open("../pics/16.png"), filename: "16.png")
 m17.photo.attach(io: File.open("../pics/17.png"), filename: "17.png")
 m18.photo.attach(io: File.open("../pics/18.png"), filename: "18.png")
 
+# movies videos AWS
+# m1.video.attach(io: File.open("../vids/1.mp4"), filename: "1.mp4")
+# m2.video.attach(io: File.open("../vids/2.mp4"), filename: "2.mp4")
+# m3.video.attach(io: File.open("../vids/3.mp4"), filename: "3.mp4")
+# m4.video.attach(io: File.open("../vids/4.mp4"), filename: "4.mp4")
+# m5.video.attach(io: File.open("../vids/5.mp4"), filename: "5.mp4")
+# m6.video.attach(io: File.open("../vids/6.mp4"), filename: "6.mp4")
+# m7.video.attach(io: File.open("../vids/7.mp4"), filename: "7.mp4")
+# m8.video.attach(io: File.open("../vids/8.mp4"), filename: "8.mp4")
+# m9.video.attach(io: File.open("../vids/9.mp4"), filename: "9.mp4")
+# m10.video.attach(io: File.open("../vids/10.mp4"), filename: "10.mp4")
+# m11.video.attach(io: File.open("../vids/11.mp4"), filename: "11.mp4")
+# m12.video.attach(io: File.open("../vids/12.mp4"), filename: "12.mp4")
+# m13.video.attach(io: File.open("../vids/13.mp4"), filename: "13.mp4")
+# m14.video.attach(io: File.open("../vids/14.mp4"), filename: "14.mp4")
+# m15.video.attach(io: File.open("../vids/15.mp4"), filename: "15.mp4")
+# m16.video.attach(io: File.open("../vids/16.mp4"), filename: "16.mp4")
+# m17.video.attach(io: File.open("../vids/17.mp4"), filename: "17.mp4")
+# m18.video.attach(io: File.open("../vids/18.mp4"), filename: "18.mp4")
+
+# movies videos-small AWS
+m1.video_small.attach(io: File.open("../vids_small/1.mp4"), filename: "1.mp4")
+m2.video_small.attach(io: File.open("../vids_small/2.mp4"), filename: "2.mp4")
+m3.video_small.attach(io: File.open("../vids_small/3.mp4"), filename: "3.mp4")
+m4.video_small.attach(io: File.open("../vids_small/4.mp4"), filename: "4.mp4")
+m5.video_small.attach(io: File.open("../vids_small/5.mp4"), filename: "5.mp4")
+m6.video_small.attach(io: File.open("../vids_small/6.mp4"), filename: "6.mp4")
+m7.video_small.attach(io: File.open("../vids_small/7.mp4"), filename: "7.mp4")
+m8.video_small.attach(io: File.open("../vids_small/8.mp4"), filename: "8.mp4")
+m9.video_small.attach(io: File.open("../vids_small/9.mp4"), filename: "9.mp4")
+m10.video_small.attach(io: File.open("../vids_small/10.mp4"), filename: "10.mp4")
+m11.video_small.attach(io: File.open("../vids_small/11.mp4"), filename: "11.mp4")
+m12.video_small.attach(io: File.open("../vids_small/12.mp4"), filename: "12.mp4")
+m13.video_small.attach(io: File.open("../vids_small/13.mp4"), filename: "13.mp4")
+m14.video_small.attach(io: File.open("../vids_small/14.mp4"), filename: "14.mp4")
+m15.video_small.attach(io: File.open("../vids_small/15.mp4"), filename: "15.mp4")
+m16.video_small.attach(io: File.open("../vids_small/16.mp4"), filename: "16.mp4")
+m17.video_small.attach(io: File.open("../vids_small/17.mp4"), filename: "17.mp4")
+m18.video_small.attach(io: File.open("../vids_small/18.mp4"), filename: "18.mp4")
 
 # genres
 g1=Genre.new
