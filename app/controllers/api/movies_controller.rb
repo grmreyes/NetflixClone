@@ -1,13 +1,15 @@
 class Api::MoviesController < ApplicationController
   
     def index
-      movies = Movie.all
-  
       #if true #put conditions here
         #benches = benches.where(seating: seating_range)
       #end
-  
-      @movies = movies
+      # @movies_action = Movie
+      # .joins(:genres)
+      # .where('genres.name = \'Action\'')
+
+      @movies = Movie.all
+
       render :index
     end
   

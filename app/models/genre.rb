@@ -4,6 +4,10 @@ class Genre < ApplicationRecord
   
     has_many :labels,
         class_name:  :Label,
-        foreign_key: :genre_id        
+        foreign_key: :genre_id
+        
+    has_many :movies,
+        through: :labels,
+        source: :movie
   
 end

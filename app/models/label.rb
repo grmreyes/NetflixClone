@@ -8,7 +8,7 @@
             class_name:  :Movie,
             foreign_key: :movie_id  
     
-        belongs_to :user,
+        belongs_to :genre,
             class_name:  :Genre,
             foreign_key: :genre_id  
     

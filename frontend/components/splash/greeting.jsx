@@ -10,7 +10,7 @@ class Greeting extends React.Component {
 
     handleDemo(e){
         e.preventDefault();
-        const demoUser =  { username: "gino123", password: "123456" }
+        const demoUser =  { username: "ncage", password: "123456" }
         this.props.signin(demoUser);
     }
 

@@ -1,8 +1,7 @@
 .movie-index{
-    background-color: black;
+    background-color: #141414;
     padding-top: 80px;
-    padding-left: 80px;
-    padding-right: 80px;
+    padding-left: 65px;
     height: 1000px;
     color: white;
 }
@@ -11,3 +10,38 @@
     font-size: 3.125rem;
     margin: 10px;
 }
+
+.movie-thumb{
+    height: auto;
+    width: 300px;
+    border-radius: 4px;
+
+}
+
+.movie-thumb-row{
+    display: flex;
+    width:100%;
+    max-width: 100%
+}
+.movie-thumb-container{
+    transition: transform 1s ;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.movie-thumb-container:hover{
+    transform: scale(1.5);
+    z-index: 2;
+}
+
+.movie-thumb-container-last{
+    transition: transform 1s ;
+    border-radius: 4px;
+    margin: 2px;
+}
+
+.movie-thumb-container-last:hover{
+    transform: scale(1.5) translate(-40px, 0px);
+    z-index: 2;
+}
+
