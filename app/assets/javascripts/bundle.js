@@ -335,16 +335,27 @@ var Header = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(Header);
 
   function Header(props) {
+    var _this;
+
     _classCallCheck(this, Header);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    window.addEventListener('scroll', function (event) {
+      if ($(window).scrollTop() < 100) {
+        $('#navbar').removeClass('header').addClass('header-trans');
+      } else {
+        $('#navbar').removeClass('header-trans').addClass('header');
+      }
+    });
+    return _this;
   }
 
   _createClass(Header, [{
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-        className: "header"
+        className: "header",
+        id: "navbar"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/browse"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
@@ -414,6 +425,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 /* harmony import */ var _movie_thumb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./movie_thumb */ "./frontend/components/movies/movie_thumb.jsx");
 /* harmony import */ var _movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./movie_thumb_last */ "./frontend/components/movies/movie_thumb_last.jsx");
 /* harmony import */ var _splash_profile_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../splash/profile_guard */ "./frontend/components/splash/profile_guard.jsx");
@@ -520,7 +532,33 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "movie-index"
-      }, window.profHiddden ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_profile_guard__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, window.profHiddden ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_profile_guard__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "index-video-container"
+      }, this.moviesAction.slice(0, 1).map(function (movie) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
+          autoPlay: true,
+          className: "index-video"
+        }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
+          src: movie.big_video_url,
+          type: "video/mp4"
+        }), " ");
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.spiderverse,
+        className: "spiderverse-logo"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+        className: "index-play",
+        to: "/movies/1"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "index-play-items"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", {
+        "class": "material-icons"
+      }, "play_arrow"), "Play")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "mpaa-rating"
+      }, "PG"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "thumbs-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        className: "row-heading"
+      }, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.moviesAction.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
@@ -530,7 +568,9 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
           movie: movie
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Comedy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        className: "row-heading"
+      }, "Comedy"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.moviesComedy.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
@@ -540,7 +580,9 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
           movie: movie
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Family"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        className: "row-heading"
+      }, "Family"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.moviesFamily.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
@@ -550,7 +592,9 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
           movie: movie
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Romance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", {
+        className: "row-heading"
+      }, "Romance"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.moviesRomance.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
@@ -560,7 +604,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
           movie: movie
         });
-      })));
+      }))));
     }
   }]);
 
@@ -832,6 +876,8 @@ var MovieThumb = /*#__PURE__*/function (_React$Component) {
       $(document).ready(function () {
         $(".thumb-vid").on("mouseover", function (event) {
           this.play();
+          var vid = document.querySelector(".index-video");
+          vid.muted = true;
         }).on('mouseout', function (event) {
           //this.currentTime = 0; this.pause();
           this.load();
@@ -913,6 +959,8 @@ var MovieThumbLast = /*#__PURE__*/function (_React$Component) {
       $(document).ready(function () {
         $(".thumb-vid").on("mouseover", function (event) {
           this.play();
+          var vid = document.querySelector(".index-video");
+          vid.muted = true;
         }).on('mouseout', function (event) {
           //this.currentTime = 0; this.pause();
           this.load();

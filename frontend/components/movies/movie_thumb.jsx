@@ -15,6 +15,8 @@ class MovieThumb extends React.Component{
     $(document).ready(function() {
       $(".thumb-vid").on("mouseover", function(event) {
         this.play();
+        let vid = document.querySelector(".index-video");
+        vid.muted = true;
     
       }).on('mouseout', function(event) {
         //this.currentTime = 0; this.pause();
