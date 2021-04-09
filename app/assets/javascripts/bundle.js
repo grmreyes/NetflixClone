@@ -721,6 +721,10 @@ var MovieShow = /*#__PURE__*/function (_React$Component) {
     key: "render",
     value: function render() {
       //back button fade
+      if (!this.props.movie) {
+        return null;
+      }
+
       var interval = null;
 
       function initInterval() {
@@ -1442,13 +1446,19 @@ var ProfileGuard = /*#__PURE__*/function (_React$Component) {
         onClick: this.hideProf,
         className: "pic-choose",
         src: window.cameron
-      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: "/browse"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        onClick: this.hideProf,
         className: "pic-choose",
         src: window.caster
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: "/browse"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        onClick: this.hideProf,
         className: "pic-choose",
         src: window.cage
-      }))));
+      })))));
     }
   }]);
 

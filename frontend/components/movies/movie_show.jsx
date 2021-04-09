@@ -20,7 +20,9 @@ class MovieShow extends React.Component{
   render(){
 
   //back button fade
-
+  if (!this.props.movie){
+    return null;
+  } 
   var interval = null;
 
   function initInterval(){

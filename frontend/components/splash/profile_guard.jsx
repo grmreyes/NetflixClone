@@ -23,8 +23,8 @@ class ProfileGuard extends React.Component {
             <h1>Who's watching?</h1>
             <ul className="profile-list">
             <li><Link to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.cameron}/></Link></li>
-            <li><img className="pic-choose" src={window.caster}/></li>
-            <li><img className="pic-choose" src={window.cage}/></li>
+            <li><Link to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.caster}/></Link></li>
+            <li><Link to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.cage}/></Link></li>
             </ul>
         </div>
         );
