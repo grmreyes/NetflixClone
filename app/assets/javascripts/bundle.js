@@ -265,6 +265,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var App = function App() {
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__.ProtectedRoute, {
+    path: "/browse",
     component: _header_header_container__WEBPACK_IMPORTED_MODULE_6__.default
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_8__.AuthRoute, {
     component: _splash_splash__WEBPACK_IMPORTED_MODULE_5__.default
@@ -347,7 +348,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
         to: "/browse"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: "https://i.imgur.com/rXPv4BN.png",
+        src: window.logo,
         className: "header-logo"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
         onClick: this.props.logout,
@@ -415,6 +416,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _movie_thumb__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./movie_thumb */ "./frontend/components/movies/movie_thumb.jsx");
 /* harmony import */ var _movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./movie_thumb_last */ "./frontend/components/movies/movie_thumb_last.jsx");
+/* harmony import */ var _splash_profile_guard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../splash/profile_guard */ "./frontend/components/splash/profile_guard.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -442,6 +444,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var MovieIndex = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieIndex, _React$Component);
 
@@ -457,6 +460,18 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchMovies();
+      this.hideProf = this.hideProf.bind(this);
+
+      if (window.profHidden === true) {
+        this.hideProf();
+      }
+    }
+  }, {
+    key: "hideProf",
+    value: function hideProf(e) {
+      var pgDiv = document.querySelector('.profile-guard-container');
+      pgDiv.classList.add('hidden');
+      window.profHidden = true;
     }
   }, {
     key: "render",
@@ -505,7 +520,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "movie-index"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+      }, window.profHiddden ? "" : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_splash_profile_guard__WEBPACK_IMPORTED_MODULE_3__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Action"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.moviesAction.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
@@ -639,27 +654,72 @@ var MovieShow = /*#__PURE__*/function (_React$Component) {
   var _super = _createSuper(MovieShow);
 
   function MovieShow(props) {
+    var _this;
+
     _classCallCheck(this, MovieShow);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.handleBack = _this.handleBack.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(MovieShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchMovie(this.props.movieId);
+    }
+  }, {
+    key: "handleBack",
+    value: function handleBack(e) {
+      this.props.history.goBack();
+    }
+  }, {
     key: "render",
     value: function render() {
-      // var cip = $(".big-video").hover( hoverVideo, hideVideo );
-      // function hoverVideo(e) {  
-      //   $('big-video', this).get(0).play(); 
-      // }
-      // function hideVideo(e) {
-      //   $('big-video', this).get(0).pause(); 
-      // }
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
+      //back button fade
+      var interval = null;
+
+      function initInterval() {
+        if (interval) clear();
+        showBack();
+        interval = setTimeout(function () {
+          $(".back").fadeOut();
+          clear();
+        }, 2600);
+      }
+
+      function clear() {
+        window.clearInterval(interval);
+        interval = null;
+      }
+
+      function showBack() {
+        $(".back").fadeIn();
+      }
+
+      function registerEvents() {
+        $(document).on("mousemove", function () {
+          initInterval();
+        });
+      }
+
+      (function () {
+        registerEvents();
+      })();
+
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "video-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "material-icons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        onClick: this.handleBack,
+        className: "back"
+      }, "west")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
         controls: true,
         autoPlay: true,
         className: "big-video"
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
-        src: this.props.movie.video_url,
+        src: this.props.movie.big_video_url,
         type: "video/mp4"
       }), " "));
     }
@@ -1260,6 +1320,97 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 
 /***/ }),
 
+/***/ "./frontend/components/splash/profile_guard.jsx":
+/*!******************************************************!*\
+  !*** ./frontend/components/splash/profile_guard.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _greeting_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./greeting_container */ "./frontend/components/splash/greeting_container.jsx");
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+
+
+
+
+var ProfileGuard = /*#__PURE__*/function (_React$Component) {
+  _inherits(ProfileGuard, _React$Component);
+
+  var _super = _createSuper(ProfileGuard);
+
+  function ProfileGuard(props) {
+    _classCallCheck(this, ProfileGuard);
+
+    return _super.call(this, props); // this.hideProf=this.hideProf.bind(this);
+    // if(window.profHidden){
+    //     this.hideProf()
+    // }
+  }
+
+  _createClass(ProfileGuard, [{
+    key: "hideProf",
+    value: function hideProf(e) {
+      var pgDiv = document.querySelector('.profile-guard-container');
+      pgDiv.classList.add('hidden');
+      window.profHidden = true;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "profile-guard-container"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Who's watching?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
+        className: "profile-list"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        to: "/browse"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        onClick: this.hideProf,
+        className: "pic-choose",
+        src: window.cameron
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "pic-choose",
+        src: window.caster
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        className: "pic-choose",
+        src: window.cage
+      }))));
+    }
+  }]);
+
+  return ProfileGuard;
+}(react__WEBPACK_IMPORTED_MODULE_0__.Component);
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileGuard);
+
+/***/ }),
+
 /***/ "./frontend/components/splash/splash.jsx":
 /*!***********************************************!*\
   !*** ./frontend/components/splash/splash.jsx ***!
@@ -1321,7 +1472,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash-main"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: "https://i.imgur.com/rXPv4BN.png",
+        src: window.logo,
         className: "splash-logo"
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
         className: "splash-signin",
@@ -1336,19 +1487,19 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash-text"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Put the bunny in the box."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Watch on Smart TVs, Playstation, Xbox, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Chromecast, Apple TV, Blu-ray players, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "and more.")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: "https://i.imgur.com/zlOb2XL.png"
+        src: window.splash1
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: "https://i.imgur.com/2gpQFcJ.png"
+        src: window.splash2
       }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash-text-right"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Papa's got a brand new bag."), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Whether you like watching wicker men "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "or bad lieutenants, your favorite"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Cage movies are in your bag. "))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "item-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash-text"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Oh no! Not the FEES!?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Stream on your phone, laptop, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "and TV without paying more. ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
-        src: "https://i.imgur.com/SLqwk8B.png"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Not the FEES!?"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "Stream on your phone, laptop, "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, "and TV without paying more. ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.splash3
       })));
     }
   }]);

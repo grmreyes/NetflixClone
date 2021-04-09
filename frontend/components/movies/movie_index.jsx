@@ -2,12 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import MovieThumb from './movie_thumb'
 import MovieThumbLast from './movie_thumb_last'
+import ProfileGuard from '../splash/profile_guard'
 
 
 
 class MovieIndex extends React.Component{
     componentDidMount(){
-        this.props.fetchMovies()    
+        this.props.fetchMovies()
+        this.hideProf=this.hideProf.bind(this);
+        if(window.profHidden===true){
+            this.hideProf()
+        }
+    }
+
+    hideProf(e){
+        let pgDiv = document.querySelector('.profile-guard-container');
+        pgDiv.classList.add('hidden');
+        window.profHidden = true;
     }
 
     render(){
@@ -58,6 +69,8 @@ class MovieIndex extends React.Component{
         return(
             
             <div className="movie-index">
+                {window.profHiddden? "": <ProfileGuard />}
+                
                 {/* {this.moviesAction.slice(0,1).map((movie) => (
                         <video autoPlay controls> <source src={movie.video_url}  type="video/mp4" /> </video>))
                  } */}

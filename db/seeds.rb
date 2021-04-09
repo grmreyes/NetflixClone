@@ -18,7 +18,7 @@ ActiveRecord::Base.connection.reset_pk_sequence!('movies')
 ActiveRecord::Base.connection.reset_pk_sequence!('genres')
 ActiveRecord::Base.connection.reset_pk_sequence!('labels')
 
-#user
+# user
 u1=User.new
 u1.username='ncage'
 u1.password='123456'
@@ -172,7 +172,7 @@ m17.save
 m18.save
 
 
-# movies photos AWS
+# movies poster AWS
 m1.photo.attach(io: File.open("../pics/1.png"), filename: "1.png")
 m2.photo.attach(io: File.open("../pics/2.png"), filename: "2.png")
 m3.photo.attach(io: File.open("../pics/3.png"), filename: "3.png")
@@ -251,7 +251,7 @@ g3.save
 g4.save
 
 
-#labels
+#labels (assigning genres to movies)
 
 m1 = Movie.where("title like '%Spider-Verse'").first
 g1 = Genre.where("name = 'Action'").first

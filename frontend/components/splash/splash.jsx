@@ -18,7 +18,7 @@ class Splash extends React.Component {
         return (
         <div className="splash-container">
             <div className="splash-main">
-                <img src="https://i.imgur.com/rXPv4BN.png" className="splash-logo"/>
+                <img src={window.logo} className="splash-logo"/>
                 <Link className="splash-signin" to="/signin">Sign In</Link>
                 <Route exact path="/" handleDemo={this.handleDemo} component ={GreetingContainer}/>
             </div>
@@ -29,10 +29,10 @@ class Splash extends React.Component {
                     <h3>Chromecast, Apple TV, Blu-ray players, </h3>
                     <h3>and more.</h3>
                 </div>
-                <img src="https://i.imgur.com/zlOb2XL.png"/>            
+                <img src={window.splash1}/>             
             </div>
             <div className="item-container">
-                <img src="https://i.imgur.com/2gpQFcJ.png"/>    
+                <img src={window.splash2}/>    
                 <div className="splash-text-right">
                     <h1>Papa's got a brand new bag.</h1>
                     <h3>Whether you like watching wicker men </h3>
@@ -43,11 +43,11 @@ class Splash extends React.Component {
             </div>
             <div className="item-container">
                 <div className="splash-text">
-                    <h1>Oh no! Not the FEES!?</h1>
+                    <h1>Not the FEES!?</h1>
                     <h3>Stream on your phone, laptop, </h3>
                     <h3>and TV without paying more. </h3>
                 </div>
-                <img src="https://i.imgur.com/SLqwk8B.png"/>            
+                <img src={window.splash3}/>             
             </div>
         </div>
         );

@@ -1,0 +1,43 @@
+.profile-guard-container{
+    position: fixed;
+    z-index:3;
+    background: black;
+    width: 100%;
+    height: 1200px;
+    top:0%;
+    left:0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.profile-guard-container h1{
+    position: absolute;
+    font-size: 70px;
+    left: 50%;
+    top: 10%;
+    transform: translateX(-50%);
+}
+
+.profile-list{
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 22%;
+    transform: translateX(-50%);
+}
+
+
+.pic-choose:hover{
+    border: 5px lightgray solid;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.pic-choose{
+    border-radius: 6px;
+    border-style: none;
+    margin: 25px;
+}
+
+.hidden{
+    display:none;
+}

@@ -5,24 +5,62 @@ import { selectMovie } from '../../reducers/selectors';
 
 class MovieShow extends React.Component{
   constructor(props){
-    super(props)
+    super(props);
+    this.handleBack = this.handleBack.bind(this)
   }
 
+  componentDidMount(){
+    this.props.fetchMovie(this.props.movieId);
+  }
 
+  handleBack(e){
+    this.props.history.goBack()
+  }
   
   render(){
-  // var cip = $(".big-video").hover( hoverVideo, hideVideo );
 
-  // function hoverVideo(e) {  
-  //   $('big-video', this).get(0).play(); 
-  // }
-  
-  // function hideVideo(e) {
-  //   $('big-video', this).get(0).pause(); 
-  // }
+  //back button fade
+
+  var interval = null;
+
+  function initInterval(){
+      if(interval)
+            clear();
+      showBack();
+      interval = setTimeout(function(){
+        $(".back").fadeOut();
+        clear();
+      },2600);
+  }
+    
+  function clear(){
+    window.clearInterval(interval);
+    interval = null;
+  }
+    
+  function showBack(){
+    $(".back").fadeIn();
+  }
+    
+  function registerEvents(){
+      $(document).on("mousemove", function(){
+          initInterval();
+        });
+  }
+    
+    (function(){
+      registerEvents();
+    })()
+
+
   return(
-    <div>
-      <video controls autoPlay className="big-video"> <source src={this.props.movie.video_url} type="video/mp4" /> </video> 
+    <div className="video-container">
+      <div className="material-icons">
+          <span onClick={this.handleBack} className="back">
+            west
+          </span>
+      </div>
+      <video controls autoPlay className="big-video"> <source src={this.props.movie.big_video_url} type="video/mp4" /> </video> 
     </div>
   )}
 }

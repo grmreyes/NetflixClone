@@ -13,7 +13,7 @@ class Header extends React.Component {
     return (
         <div className = "header">        
             <Link to="/browse">
-            <img src="https://i.imgur.com/rXPv4BN.png" className="header-logo" />
+            <img src={window.logo} className="header-logo" />
             </Link>
             <button onClick={this.props.logout} className="logout">Log Out</button>
         </div>

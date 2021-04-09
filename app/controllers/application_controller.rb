@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
     def logged_in?
       !!current_user
     end
+
+    def prof_chosen?
+
+    end
   
     def signin(user)
       user.reset_session_token!

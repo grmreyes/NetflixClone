@@ -19,7 +19,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 const App = () => (
   <div>
     <header>
-      <ProtectedRoute component={HeaderContainer} />
+      <ProtectedRoute path = "/browse" component={HeaderContainer} />
     </header>
     <AuthRoute component={Splash} />
     <Switch>

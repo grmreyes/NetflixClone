@@ -4,10 +4,20 @@
     <title>Nicflix</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <script type="text/javascript">
+      window.splash1 = "<%= image_url('splash1.png') %>";
+      window.splash2 = "<%= image_url('splash2.png') %>";
+      window.splash3 = "<%= image_url('splash3.png') %>";
+      window.bgwall = "<%= image_url('nicwalldark.jpg') %>";
+      window.cameron = "<%= image_url('cameron.jpg') %>";
+      window.caster = "<%= image_url('caster.png') %>";
+      window.cage = "<%= image_url('cage.jpg') %>";
+      window.logo = "<%= image_url('nicflix.png') %>";
+    </script>
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= favicon_link_tag asset_path('favicon.ico') %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap" rel="stylesheet">
   </head>
