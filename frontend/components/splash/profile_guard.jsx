@@ -15,6 +15,8 @@ class ProfileGuard extends React.Component {
         let pgDiv = document.querySelector('.profile-guard-container');
         pgDiv.classList.add('hidden');
         window.profHidden = true;
+        let vid = document.querySelector(".index-video");
+        vid.play();
     }
 
     render() {
@@ -22,9 +24,9 @@ class ProfileGuard extends React.Component {
         <div className="profile-guard-container">
             <h1>Who's watching?</h1>
             <ul className="profile-list">
-            <li><Link to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.cameron}/></Link></li>
-            <li><Link to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.caster}/></Link></li>
-            <li><Link to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.cage}/></Link></li>
+            <li><Link className="pic-container" to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.cameron}/><h2>Cameron</h2></Link></li>
+            <li><Link className="pic-container" to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.caster}/><h2>Caster</h2></Link></li>
+            <li><Link className="pic-container" to="/browse"><img onClick={this.hideProf} className="pic-choose" src={window.cage}/><h2>Cage</h2></Link></li>
             </ul>
         </div>
         );

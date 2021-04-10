@@ -72,13 +72,13 @@ class MovieIndex extends React.Component{
                 {window.profHiddden? "": <ProfileGuard />}
                 <div className="index-video-container">
                     {this.moviesAction.slice(0,1).map((movie) => (
-                            <video autoPlay className="index-video"> <source src={movie.big_video_url} type="video/mp4" /> </video> ))
+                            <video className="index-video"> <source src={movie.big_video_url} type="video/mp4" /> </video> ))
                     }
                 </div>
                 <img src={window.spiderverse} className="spiderverse-logo" />
                 <Link className="index-play" to="/movies/1">
                     <div className="index-play-items">
-                        <strong class="material-icons">
+                        <strong className="material-icons">
                             play_arrow 
                         </strong>
                         Play
