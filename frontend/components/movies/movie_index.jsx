@@ -12,6 +12,8 @@ class MovieIndex extends React.Component{
         this.hideProf=this.hideProf.bind(this);
         if(window.profHidden===true){
             this.hideProf()
+            let vid = document.querySelector(".index-video");
+            vid.play();
         }
     }
 
@@ -72,7 +74,7 @@ class MovieIndex extends React.Component{
                 {window.profHiddden? "": <ProfileGuard />}
                 <div className="index-video-container">
                     {this.moviesAction.slice(0,1).map((movie) => (
-                            <video className="index-video"> <source src={movie.big_video_url} type="video/mp4" /> </video> ))
+                            <video loop className="index-video"> <source src={movie.big_video_url} type="video/mp4" /> </video> ))
                     }
                 </div>
                 <img src={window.spiderverse} className="spiderverse-logo" />

@@ -476,6 +476,8 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
 
       if (window.profHidden === true) {
         this.hideProf();
+        var vid = document.querySelector(".index-video");
+        vid.play();
       }
     }
   }, {
@@ -536,6 +538,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "index-video-container"
       }, this.moviesAction.slice(0, 1).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
+          loop: true,
           className: "index-video"
         }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
           src: movie.big_video_url,
