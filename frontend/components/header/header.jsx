@@ -1,7 +1,7 @@
 import React from 'react';
-import {
-    Link,
-  } from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import NavLinks from './nav_links'
+import SearchBar from './search_bar'
 
 class Header extends React.Component {
     constructor(props){
@@ -19,10 +19,10 @@ class Header extends React.Component {
         this.handleLogout = this.handleLogout.bind(this)
     }
 
-  handleLogout(){
+    handleLogout(){
       window.profHidden = false;
       this.props.logout();
-  } 
+    } 
 
   render() {
 
@@ -33,6 +33,8 @@ class Header extends React.Component {
             <Link to="/browse">
               <img src={window.logo} className="header-logo" />
             </Link>
+            <NavLinks />
+            <SearchBar history={this.props.history}/>
             <button onClick={this.handleLogout} className="logout">Log Out</button>
         </div>
 

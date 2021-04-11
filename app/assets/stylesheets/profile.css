@@ -1,6 +1,6 @@
 .profile-guard-container{
     position: fixed;
-    z-index:3;
+    z-index:7;
     background: black;
     width: 100%;
     height: 1200px;
@@ -54,4 +54,12 @@
 
 .pic-container:hover h2{
     color: white
+}
+
+.pg-header-logo{
+    position: absolute;
+    top: 1.1%;
+    left: 2%;
+    width: 150px;
+    height: auto;
 }
