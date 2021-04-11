@@ -24,6 +24,7 @@ class SearchBar extends React.Component {
             searchInput.classList.remove('search-input-invisible');
             searchInput.classList.add('search-input');
             searchInput.disabled = false;
+            searchInput.select();
         }
         else{
             searchInput.classList.remove('search-input');

@@ -15,15 +15,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/grmreyes/NetflixClone.git"
+    "url": "git+https://github.com/grmreyes/nicflix.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/grmreyes/NetflixClone/issues"
+    "url": "https://github.com/grmreyes/nicflix/issues"
   },
-  "homepage": "https://github.com/grmreyes/NetflixClone#readme",
+  "homepage": "https://github.com/grmreyes/nicflix#readme",
   "dependencies": {
     "@babel/core": "^7.13.14",
     "@babel/preset-env": "^7.13.12",
