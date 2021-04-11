@@ -29,18 +29,20 @@
 }
 
 .header-logo{
-   position: relative;
-   top: 0.5%;
-   left: 2%;
-   width: 150px;
-   height: auto;
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    left: 2%;
+    width: 150px;
+    height: auto;
 }
 
 .logout{
     text-align: center;
     font-family: 'Open Sans', sans-serif;
     position: absolute;
-    top: 20%;
+    top: 50%;
+    transform: translatey(-50%);
     left: 93%;
     background-color: #e50914;
     width: 85px;
@@ -52,4 +54,94 @@
 
 .logout:hover{
     cursor: pointer;
+}
+
+.nav-links-container{
+    position: absolute;
+    top: 50%;
+    transform: translatey(-50%);
+    left: 10%;
+    display: flex;
+    margin-left: 10px;
+}
+
+.nav-link{
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-size:14px;
+    margin: 8px;
+    text-decoration: none;
+}
+
+.nav-link:hover{
+    color: gray;
+}
+
+.search-bar-container{
+    display: flex;
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    transform: translatey(-50%);
+    
+}
+
+.search-bar-container-expanded{
+    display: flex;
+    position: absolute;
+    left: 90%;
+    top: 50%;
+    transform: translatey(-50%);
+    
+}
+
+.search-button{
+    position: absolute;
+    top: 50%;
+    right:0%;
+    transform: translatey(-50%);
+    transition: all 1s;
+}
+
+.search-button-expanded{
+    position: absolute;
+    top: 50%;
+    right: 180px;
+    transform: translatey(-50%);
+    transition: all 1s;
+    
+}
+
+.search-button:hover{
+    cursor: pointer;
+}
+
+.search-button-expanded:hover{
+    cursor: pointer;
+}
+
+.search-input-invisible{
+    position: absolute;
+    width:0px;
+    top: 50%;
+    right: 0%;
+    transform: translatey(-50%);
+    transition: all 1s;
+    background-color :rgba(0, 0, 0, 0);
+    z-index: 0;
+    border: 0;
+}
+
+.search-input{
+    position: absolute;
+    width: 160px;
+    top: 50%;
+    right: 20%;
+    transform: translatey(-50%);
+    transition: all 1s;
+    background-color:rgba(0, 0, 0, 0.75);
+    border: 0.5px solid white;
+    border-radius: 0px;
+    z-index: 5;
+    color: white;
 }

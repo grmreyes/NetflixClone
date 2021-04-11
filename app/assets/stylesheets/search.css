@@ -1,0 +1,24 @@
+
+
+.search-movie-index{
+    background-color: #141414;
+    padding-top: 80px;
+    padding-left: 65px;
+    height: 1200px;
+    color: white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.search-thumbs-container{
+    position: relative;
+    margin-top: 0px;
+    z-index: 2;
+}
+
+.search-row-heading{
+    color: white;
+    font-size: 24px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
