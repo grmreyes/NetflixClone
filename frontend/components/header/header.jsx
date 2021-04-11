@@ -16,18 +16,24 @@ class Header extends React.Component {
             $('#navbar').removeClass('header-trans').addClass('header');
           }
         });
+        this.handleLogout = this.handleLogout.bind(this)
     }
 
-    
+  handleLogout(){
+      window.profHidden = false;
+      this.props.logout();
+  } 
 
   render() {
+
+    
     
     return (
         <div className = "header" id="navbar">        
             <Link to="/browse">
               <img src={window.logo} className="header-logo" />
             </Link>
-            <button onClick={this.props.logout} className="logout">Log Out</button>
+            <button onClick={this.handleLogout} className="logout">Log Out</button>
         </div>
 
     );

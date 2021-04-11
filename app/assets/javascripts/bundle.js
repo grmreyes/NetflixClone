@@ -347,10 +347,17 @@ var Header = /*#__PURE__*/function (_React$Component) {
         $('#navbar').removeClass('header-trans').addClass('header');
       }
     });
+    _this.handleLogout = _this.handleLogout.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(Header, [{
+    key: "handleLogout",
+    value: function handleLogout() {
+      window.profHidden = false;
+      this.props.logout();
+    }
+  }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -362,7 +369,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
         src: window.logo,
         className: "header-logo"
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("button", {
-        onClick: this.props.logout,
+        onClick: this.handleLogout,
         className: "logout"
       }, "Log Out"));
     }
