@@ -586,7 +586,7 @@ var SearchBar = /*#__PURE__*/function (_React$Component) {
         className: "search-button",
         id: "search-button"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", {
-        "class": "material-icons"
+        className: "material-icons"
       }, "search")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", {
         type: "text",
         value: this.state.searchTerm,
@@ -655,17 +655,25 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
 
   var _super = _createSuper(MovieIndex);
 
-  function MovieIndex() {
+  function MovieIndex(props) {
+    var _this;
+
     _classCallCheck(this, MovieIndex);
 
-    return _super.apply(this, arguments);
+    _this = _super.call(this, props);
+    _this.state = {
+      mute: 'volume_up'
+    };
+    _this.hideProf = _this.hideProf.bind(_assertThisInitialized(_this));
+    _this.handleMute = _this.handleMute.bind(_assertThisInitialized(_this));
+    _this.forceMute = _this.forceMute.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(MovieIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchMovies();
-      this.hideProf = this.hideProf.bind(this);
 
       if (window.profHidden === true) {
         this.hideProf();
@@ -681,47 +689,85 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
       window.profHidden = true;
     }
   }, {
+    key: "handleMute",
+    value: function handleMute(e) {
+      if (this.state.mute === 'volume_up') {
+        this.setState({
+          mute: 'volume_off'
+        });
+        var vid = document.querySelector(".index-video");
+
+        if (vid) {
+          vid.muted = true;
+        }
+      } else {
+        this.setState({
+          mute: 'volume_up'
+        });
+
+        var _vid = document.querySelector(".index-video");
+
+        if (_vid) {
+          _vid.muted = false;
+        }
+      }
+    }
+  }, {
+    key: "forceMute",
+    value: function forceMute(e) {
+      if (this.state.mute === 'volume_up') {
+        this.setState({
+          mute: 'volume_off'
+        });
+        var vid = document.querySelector(".index-video");
+
+        if (vid) {
+          vid.muted = true;
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       this.moviesAction = [];
       this.props.movies.forEach(function (movie) {
         if (movie.genres[0].name === "Action") {
-          _this.moviesAction.push(movie);
+          _this2.moviesAction.push(movie);
         } else if (movie.genres.length > 1) {
           if (movie.genres[1].name === "Action") {
-            _this.moviesAction.push(movie);
+            _this2.moviesAction.push(movie);
           }
         }
       });
       this.moviesComedy = [];
       this.props.movies.forEach(function (movie) {
         if (movie.genres[0].name === "Comedy") {
-          _this.moviesComedy.push(movie);
+          _this2.moviesComedy.push(movie);
         } else if (movie.genres.length > 1) {
           if (movie.genres[1].name === "Comedy") {
-            _this.moviesComedy.push(movie);
+            _this2.moviesComedy.push(movie);
           }
         }
       });
       this.moviesFamily = [];
       this.props.movies.forEach(function (movie) {
         if (movie.genres[0].name === "Family") {
-          _this.moviesFamily.push(movie);
+          _this2.moviesFamily.push(movie);
         } else if (movie.genres.length > 1) {
           if (movie.genres[1].name === "Family") {
-            _this.moviesFamily.push(movie);
+            _this2.moviesFamily.push(movie);
           }
         }
       });
       this.moviesRomance = [];
       this.props.movies.forEach(function (movie) {
         if (movie.genres[0].name === "Romance") {
-          _this.moviesRomance.push(movie);
+          _this2.moviesRomance.push(movie);
         } else if (movie.genres.length > 1) {
           if (movie.genres[1].name === "Romance") {
-            _this.moviesRomance.push(movie);
+            _this2.moviesRomance.push(movie);
           }
         }
       });
@@ -748,6 +794,11 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", {
         className: "material-icons"
       }, "play_arrow"), "Play")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "muteButton"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", {
+        onClick: this.handleMute,
+        className: "material-icons"
+      }, this.state.mute)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "mpaa-rating"
       }, "PG"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "thumbs-container"
@@ -758,10 +809,12 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesAction.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesAction.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
@@ -771,10 +824,12 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesComedy.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesComedy.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
@@ -784,10 +839,12 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesFamily.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesFamily.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
@@ -797,10 +854,12 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesRomance.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesRomance.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          forceMute: _this2.forceMute,
           movie: movie
         });
       }))));
@@ -1058,9 +1117,6 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
-/* <Link to={`/movies/${this.props.movie.id}`}>
-<img className="movie-thumb" src={this.props.movie.photo_url}/>
-</Link> */
 
 var MovieThumb = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieThumb, _React$Component);
@@ -1076,16 +1132,16 @@ var MovieThumb = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieThumb, [{
     key: "render",
     value: function render() {
+      var forceMute = this.props.forceMute;
       $(document).ready(function () {
         $(".thumb-vid").on("mouseover", function (event) {
           this.play();
           var vid = document.querySelector(".index-video");
 
-          if (vid) {
-            vid.muted = true;
+          if (vid.muted === false) {
+            forceMute();
           }
         }).on('mouseout', function (event) {
-          //this.currentTime = 0; this.pause();
           this.load();
         });
       });
@@ -1162,16 +1218,12 @@ var MovieThumbLast = /*#__PURE__*/function (_React$Component) {
   _createClass(MovieThumbLast, [{
     key: "render",
     value: function render() {
+      var forceMute = this.props.forceMute;
       $(document).ready(function () {
         $(".thumb-vid").on("mouseover", function (event) {
           this.play();
-          var vid = document.querySelector(".index-video");
-
-          if (vid) {
-            vid.muted = true;
-          }
+          forceMute();
         }).on('mouseout', function (event) {
-          //this.currentTime = 0; this.pause();
           this.load();
         });
       });

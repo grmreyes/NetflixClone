@@ -7,9 +7,17 @@ import ProfileGuard from '../splash/profile_guard'
 
 
 class MovieIndex extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {mute: 'volume_up'}
+        this.hideProf=this.hideProf.bind(this);
+        this.handleMute=this.handleMute.bind(this);
+        this.forceMute=this.forceMute.bind(this);
+    }
     componentDidMount(){
         this.props.fetchMovies()
-        this.hideProf=this.hideProf.bind(this);
+
+        
         if(window.profHidden===true){
             this.hideProf()
             let vid = document.querySelector(".index-video");
@@ -21,6 +29,32 @@ class MovieIndex extends React.Component{
         let pgDiv = document.querySelector('.profile-guard-container');
         pgDiv.classList.add('hidden');
         window.profHidden = true;
+    }
+
+    handleMute(e){
+        if(this.state.mute==='volume_up'){
+            this.setState({mute: 'volume_off'})
+            let vid = document.querySelector(".index-video");
+            if(vid){
+              vid.muted = true;
+            }
+        }
+        else{
+            this.setState({mute: 'volume_up'})
+            let vid = document.querySelector(".index-video");
+            if(vid){
+              vid.muted = false;
+            }
+        }
+    }
+    forceMute(e){
+        if(this.state.mute==='volume_up'){
+            this.setState({mute: 'volume_off'})
+            let vid = document.querySelector(".index-video");
+            if(vid){
+                vid.muted = true;
+            }
+        }
     }
 
     render(){
@@ -86,6 +120,11 @@ class MovieIndex extends React.Component{
                         Play
                     </div>
                 </Link>
+                <div className="muteButton">
+                    <strong onClick={this.handleMute} className="material-icons">
+                        {this.state.mute}
+                    </strong>
+                </div>
                 <div className="mpaa-rating">
                     PG
                 </div>
@@ -93,37 +132,37 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Action"><h1>Action</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesAction.slice(0,5).map((movie) => (
-                            <MovieThumb movie={movie}/>))
+                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesAction.slice(5,6).map((movie) => (
-                            <MovieThumbLast movie={movie}/>))
+                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     <Link className="row-heading" to="browse/Comedy"><h1>Comedy</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesComedy.slice(0,5).map((movie) => (
-                            <MovieThumb movie={movie}/>))
+                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesComedy.slice(5,6).map((movie) => (
-                            <MovieThumbLast movie={movie}/>))
+                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     <Link className="row-heading" to="browse/Family"><h1>Family</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesFamily.slice(0,5).map((movie) => (
-                            <MovieThumb movie={movie}/>))
+                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesFamily.slice(5,6).map((movie) => (
-                            <MovieThumbLast movie={movie}/>))
+                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     <Link className="row-heading" to="browse/Action"><h1>Romance</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesRomance.slice(0,5).map((movie) => (
-                            <MovieThumb movie={movie}/>))
+                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesRomance.slice(5,6).map((movie) => (
-                            <MovieThumbLast movie={movie}/>))
+                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                 </div>

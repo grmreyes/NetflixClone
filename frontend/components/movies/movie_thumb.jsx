@@ -2,28 +2,23 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 
-/* <Link to={`/movies/${this.props.movie.id}`}>
-<img className="movie-thumb" src={this.props.movie.photo_url}/>
-</Link> */
-
 class MovieThumb extends React.Component{
   constructor(props){
     super(props);
   }
 
   render(){
+    let forceMute = this.props.forceMute
     $(document).ready(function() {
       $(".thumb-vid").on("mouseover", function(event) {
         this.play();
         let vid = document.querySelector(".index-video");
-        if(vid){
-          vid.muted = true;
+        if(vid.muted===false){
+          forceMute();
         }
-    
+        
       }).on('mouseout', function(event) {
-        //this.currentTime = 0; this.pause();
         this.load();
-    
       });
     })
     return(

@@ -7,18 +7,13 @@ class MovieThumbLast extends React.Component{
   }
 
   render(){
+    let forceMute = this.props.forceMute
     $(document).ready(function() {
       $(".thumb-vid").on("mouseover", function(event) {
         this.play();
-        let vid = document.querySelector(".index-video");
-        if(vid){
-          vid.muted = true;
-        }
-    
+        forceMute();
       }).on('mouseout', function(event) {
-        //this.currentTime = 0; this.pause();
         this.load();
-    
       });
     })
     return(

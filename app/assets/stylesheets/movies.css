@@ -186,3 +186,23 @@
     padding-right: 20px;
     padding-left: 12px;
 }
+
+.muteButton{
+    position: absolute;
+    top: 520px;
+    right: 140px;
+    color: white;
+    z-index: 2;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.muteButton:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.212);
+}
+
+.muteButton .material-icons{
+    font-size: 40px;
+}

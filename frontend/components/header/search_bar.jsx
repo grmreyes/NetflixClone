@@ -52,7 +52,7 @@ class SearchBar extends React.Component {
     return (
       <div className="search-bar-container">
             <div onClick={this.handleButton} className="search-button" id="search-button">
-                <strong class="material-icons">
+                <strong className="material-icons">
                     search
                 </strong>
             </div>
