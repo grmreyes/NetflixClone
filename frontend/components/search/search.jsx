@@ -71,7 +71,7 @@ class SearchResults extends React.Component{
             <div className="search-movie-index">
                 
                 <div className = "search-thumbs-container">
-                    <h1 className="search-row-heading">Search Results</h1>
+                <h1 className="search-row-heading">Search Results</h1>
                     <ul className="movie-thumb-row">
                         {this.searchedMovies.length<1? 'No results found.': ''}
                         {this.searchedMovies.slice(0,5).map((movie) => (

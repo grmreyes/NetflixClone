@@ -130,6 +130,7 @@ class MovieIndex extends React.Component{
                     PG
                 </div>
                 <div className = "thumbs-container">
+                    <div>
                     <Link className="row-heading" to="browse/Action"><h1>Action</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesAction.slice(0,5).map((movie) => (
@@ -139,6 +140,8 @@ class MovieIndex extends React.Component{
                             <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
+                    </div>
+                    <div>
                     <Link className="row-heading" to="browse/Comedy"><h1>Comedy</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesComedy.slice(0,5).map((movie) => (
@@ -148,6 +151,8 @@ class MovieIndex extends React.Component{
                             <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
+                    </div>
+                    <div>
                     <Link className="row-heading" to="browse/Family"><h1>Family</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesFamily.slice(0,5).map((movie) => (
@@ -157,6 +162,8 @@ class MovieIndex extends React.Component{
                             <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
+                    </div>
+                    <div>
                     <Link className="row-heading" to="browse/Action"><h1>Romance</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesRomance.slice(0,5).map((movie) => (
@@ -166,6 +173,7 @@ class MovieIndex extends React.Component{
                             <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
+                    </div>
                 </div>
             </div>
 

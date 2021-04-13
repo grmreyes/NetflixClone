@@ -859,7 +859,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "mpaa-rating"
       }, "PG"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "thumbs-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         className: "row-heading",
         to: "browse/Action"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Action")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
@@ -874,7 +874,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
           forceMute: _this2.forceMute,
           movie: movie
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         className: "row-heading",
         to: "browse/Comedy"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Comedy")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
@@ -889,7 +889,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
           forceMute: _this2.forceMute,
           movie: movie
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         className: "row-heading",
         to: "browse/Family"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Family")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
@@ -904,7 +904,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
           forceMute: _this2.forceMute,
           movie: movie
         });
-      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
+      }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Link, {
         className: "row-heading",
         to: "browse/Action"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Romance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
@@ -919,7 +919,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
           forceMute: _this2.forceMute,
           movie: movie
         });
-      }))));
+      })))));
     }
   }]);
 
@@ -1218,7 +1218,11 @@ var MovieThumb = /*#__PURE__*/function (_React$Component) {
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
         src: this.props.movie.video_url,
         type: "video/mp4"
-      }), " ")));
+      }), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "thumb-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "thumb-buttons"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.props.movie.rating), "   ", this.props.movie.runtime), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.movie.genres[0].name, this.props.movie.genres.length > 1 ? " | " + this.props.movie.genres[1].name : "")));
     }
   }]);
 
