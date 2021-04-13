@@ -16,6 +16,7 @@ class MovieIndex extends React.Component{
     }
     componentDidMount(){
         this.props.fetchMovies()
+        this.props.fetchList({userId: this.props.userId})
 
         
         if(window.profHidden===true){
