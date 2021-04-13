@@ -1,6 +1,7 @@
 class List < ApplicationRecord
 
     validates :movie_id, :user_id, presence: true
+    validates :movie_id, uniqueness: { scope: :user_id }
       
     belongs_to :movie,
         class_name:  :Movie,

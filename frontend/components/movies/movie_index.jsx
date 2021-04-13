@@ -116,7 +116,7 @@ class MovieIndex extends React.Component{
                 </div>
                 <img src={window.spiderverse} className="spiderverse-logo" />
                 <PlayButton />
-                <MyListButtonContainer />
+                <MyListButtonContainer movieId="1"/>
                 <div className="muteButton">
                     <strong onClick={this.handleMute} className="material-icons">
                         {this.state.mute}

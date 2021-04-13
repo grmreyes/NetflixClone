@@ -16,10 +16,9 @@ class Api::ListsController < ApplicationController
     end
 
     def destroy
-      @list = List.find_by(id: params[:listId])
+      @list = List.find_by(user_id: params[:userId],movie_id: params[:movieId])
       @list.destroy
       @lists = List.where(user_id: params[:userId])
-
       render :index
     end
   end

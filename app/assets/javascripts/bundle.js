@@ -847,7 +847,9 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
         src: window.spiderverse,
         className: "spiderverse-logo"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_play_button__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mylist_button_container__WEBPACK_IMPORTED_MODULE_5__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_play_button__WEBPACK_IMPORTED_MODULE_4__.default, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mylist_button_container__WEBPACK_IMPORTED_MODULE_5__.default, {
+        movieId: "1"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "muteButton"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", {
         onClick: this.handleMute,
@@ -1372,6 +1374,16 @@ var MyListButton = /*#__PURE__*/function (_React$Component) {
       this.props.fetchList({
         userId: this.props.userId
       });
+
+      if (Object.values(this.props.list).includes(this.props.movieId)) {
+        this.setState({
+          added: 'done'
+        });
+      } else {
+        this.setState({
+          added: 'add'
+        });
+      }
     }
   }, {
     key: "handleButton",
@@ -1381,13 +1393,16 @@ var MyListButton = /*#__PURE__*/function (_React$Component) {
           added: 'done'
         });
         this.props.createListing({
-          movieId: 1,
+          movieId: this.props.movieId,
           userId: this.props.userId
-        }); //  .then(()=>(this.props.fetchList({userId: this.props.userId}))
-        //      .then(()=>(render ))
+        });
       } else {
         this.setState({
           added: 'add'
+        });
+        this.props.deleteListing({
+          movieId: this.props.movieId,
+          userId: this.props.userId
         });
       }
     }
@@ -1428,10 +1443,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var mapStateToProps = function mapStateToProps(state) {
+var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     list: state.entities.list,
-    userId: state.session.id
+    userId: state.session.id,
+    movieId: parseInt(ownProps.movieId)
   };
 };
 
@@ -1440,11 +1456,11 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     fetchList: function fetchList(list) {
       return dispatch((0,_actions_list_actions__WEBPACK_IMPORTED_MODULE_1__.fetchList)(list));
     },
-    createListing: function createListing(movieId, userId) {
-      return dispatch((0,_actions_list_actions__WEBPACK_IMPORTED_MODULE_1__.createListing)(movieId, userId));
+    createListing: function createListing(data) {
+      return dispatch((0,_actions_list_actions__WEBPACK_IMPORTED_MODULE_1__.createListing)(data));
     },
-    deleteListing: function deleteListing(listId, userId) {
-      return dispatch((0,_actions_list_actions__WEBPACK_IMPORTED_MODULE_1__.deleteListing)(listId, userId));
+    deleteListing: function deleteListing(data) {
+      return dispatch((0,_actions_list_actions__WEBPACK_IMPORTED_MODULE_1__.deleteListing)(data));
     }
   };
 };
@@ -2595,10 +2611,10 @@ var fetchList = function fetchList(data) {
     data: data
   });
 };
-var deleteListing = function deleteListing(listId, data) {
+var deleteListing = function deleteListing(data) {
   return $.ajax({
     method: 'DELETE',
-    url: "api/lists/".concat(data[listId]),
+    url: "api/lists/3",
     data: data
   });
 };

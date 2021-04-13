@@ -16,10 +16,10 @@ export const createListing = (data) => {
         })
   );}
 
-  export const deleteListing = (listId,data) => (
+  export const deleteListing = (data) => (
     $.ajax({
       method: 'DELETE',
-      url: `api/lists/${data[listId]}`,
+      url: `api/lists/3`,
       data
     })
   );

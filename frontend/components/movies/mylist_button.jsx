@@ -12,20 +12,26 @@ class MyListButton extends React.Component{
 
     componentDidMount(){
         this.props.fetchList({userId: this.props.userId});
+        if(Object.values(this.props.list).includes(this.props.movieId)){
+            this.setState({added: 'done'})
+        }
+        else{
+            this.setState({added: 'add'})
+        }
     }
 
     handleButton(e){
+        
         if(this.state.added==='add'){
             
             this.setState({added: 'done'})
-            this.props.createListing({movieId: 1,userId: this.props.userId})
-              //  .then(()=>(this.props.fetchList({userId: this.props.userId}))
-              //      .then(()=>(render ))
+            this.props.createListing({movieId: this.props.movieId,userId: this.props.userId})
 
             
         }
         else{
             this.setState({added: 'add'})
+            this.props.deleteListing({movieId: this.props.movieId,userId: this.props.userId})
         }
     }
     render(){
