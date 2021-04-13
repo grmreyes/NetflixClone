@@ -525,7 +525,12 @@ function NavLinks() {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
     className: "nav-link",
     to: "/browse/Romance"
-  }, "Romance")));
+  }, "Romance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+    className: "nav-link-item"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    className: "nav-link",
+    to: "/browse/MyList"
+  }, "My List")));
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NavLinks);
@@ -1400,7 +1405,7 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      function searchMatch(movie, searchTerm) {
+      function searchMatch(movie, searchTerm, list) {
         //trim search term
         var trimmed = searchTerm.replaceAll(/\s/g, "");
         trimmed = trimmed.replaceAll("-", "");
@@ -1414,7 +1419,14 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
         trimTitle = trimTitle.replaceAll(":", "");
         trimTitle = trimTitle.toLowerCase(); //lowercase description
 
-        var lowerDescription = movie.description.toLowerCase(); //match with genre 1
+        var lowerDescription = movie.description.toLowerCase(); //mylist
+
+        if (trimmed === 'mylist') {
+          if (Object.values(list).includes(movie.id)) {
+            return true;
+          }
+        } //match with genre 1
+
 
         if (movie.genres[0].name.toLowerCase() === trimmed) {
           return true;
@@ -1438,11 +1450,10 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
 
       this.searchedMovies = [];
       this.searchTerm = this.props.searchTerm;
+      this.list = this.props.list;
       this.props.movies.forEach(function (movie) {
-        if (searchMatch(movie, _this.searchTerm) === true) {
+        if (searchMatch(movie, _this.searchTerm, _this.list) === true) {
           _this.searchedMovies.push(movie);
-
-          console.log(_this.searchedMovies);
         }
       });
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
@@ -1515,9 +1526,11 @@ __webpack_require__.r(__webpack_exports__);
 var mapStateToProps = function mapStateToProps(state, _ref) {
   var match = _ref.match;
   var searchTerm = match.params.searchTerm;
+  console.log("list: " + Object.values(state.entities.list));
   return {
     searchTerm: searchTerm,
-    movies: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__.selectMovies)(state)
+    movies: (0,_reducers_selectors__WEBPACK_IMPORTED_MODULE_2__.selectMovies)(state),
+    list: state.entities.list
   };
 };
 

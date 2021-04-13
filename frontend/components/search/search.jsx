@@ -14,7 +14,7 @@ class SearchResults extends React.Component{
 
 
     render(){
-        function searchMatch(movie,searchTerm){
+        function searchMatch(movie,searchTerm,list){
             //trim search term
             
             let trimmed = searchTerm.replaceAll(/\s/g, "");
@@ -30,6 +30,13 @@ class SearchResults extends React.Component{
             trimTitle = trimTitle.toLowerCase();
             //lowercase description
             let lowerDescription = movie.description.toLowerCase()
+
+            //mylist
+            if(trimmed==='mylist'){
+                if(Object.values(list).includes(movie.id)){
+                    return true;
+                }
+            }
             //match with genre 1
             if(movie.genres[0].name.toLowerCase()===trimmed){
                 return true;
@@ -53,10 +60,10 @@ class SearchResults extends React.Component{
         
         this.searchedMovies = [];
         this.searchTerm = this.props.searchTerm
+        this.list = this.props.list
         this.props.movies.forEach(movie =>{
-            if(searchMatch(movie,this.searchTerm)===true){
+            if(searchMatch(movie,this.searchTerm,this.list)===true){
                 this.searchedMovies.push(movie);
-                console.log(this.searchedMovies)
             }
         })
         return(

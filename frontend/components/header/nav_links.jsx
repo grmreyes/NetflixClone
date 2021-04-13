@@ -10,6 +10,7 @@ function NavLinks() {
           <li className="nav-link-item"><Link className="nav-link" to="/browse/Comedy">Comedy</Link></li>
           <li className="nav-link-item"><Link className="nav-link" to="/browse/Family">Family</Link></li>
           <li className="nav-link-item"><Link className="nav-link" to="/browse/Romance">Romance</Link></li>   
+          <li className="nav-link-item"><Link className="nav-link" to="/browse/MyList">My List</Link></li>  
       </ul>
     );
   }
