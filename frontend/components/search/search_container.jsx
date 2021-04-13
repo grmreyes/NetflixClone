@@ -6,7 +6,6 @@ import SearchResults from './search';
 
 const mapStateToProps = (state, { match }) => {
     const searchTerm = match.params.searchTerm;
-    console.log("list: " + Object.values(state.entities.list))
     return {
         searchTerm,
         movies: selectMovies(state),

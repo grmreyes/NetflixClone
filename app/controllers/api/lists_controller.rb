@@ -3,7 +3,7 @@ class Api::ListsController < ApplicationController
       @list = List.new
       @list.movie_id = params[:movieId]
       @list.user_id = params[:userId]
-      list.save
+      @list.save
       
       @lists = List.where(user_id: params[:userId])
 
@@ -12,8 +12,6 @@ class Api::ListsController < ApplicationController
   
     def index
       @lists = List.where(user_id: params[:userId])
-      #@lists = List.all
-      p "************************* #{@lists}"
       render :index
     end
 

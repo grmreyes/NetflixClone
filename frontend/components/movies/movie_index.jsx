@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import MovieThumb from './movie_thumb'
-import MovieThumbLast from './movie_thumb_last'
-import ProfileGuard from '../splash/profile_guard'
+import MovieThumb from './movie_thumb';
+import MovieThumbLast from './movie_thumb_last';
+import ProfileGuard from '../splash/profile_guard';
+import PlayButton from './play_button';
+import MyListButtonContainer from './mylist_button_container';
 
 
 
@@ -113,14 +115,8 @@ class MovieIndex extends React.Component{
                     }
                 </div>
                 <img src={window.spiderverse} className="spiderverse-logo" />
-                <Link className="index-play" to="/movies/1">
-                    <div className="index-play-items">
-                        <strong className="material-icons">
-                            play_arrow 
-                        </strong>
-                        Play
-                    </div>
-                </Link>
+                <PlayButton />
+                <MyListButtonContainer />
                 <div className="muteButton">
                     <strong onClick={this.handleMute} className="material-icons">
                         {this.state.mute}

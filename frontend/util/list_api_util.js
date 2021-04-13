@@ -4,7 +4,6 @@ export const createListing = (data) => {
       method: 'POST',
       url: 'api/lists',
       data
-      //{movieId,userId}
     })
   );}
 
@@ -20,7 +19,7 @@ export const createListing = (data) => {
   export const deleteListing = (listId,data) => (
     $.ajax({
       method: 'DELETE',
-      url: `api/lists/${listId}`,
+      url: `api/lists/${data[listId]}`,
       data
     })
   );

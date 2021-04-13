@@ -20,12 +20,12 @@ export const fetchList = (movieId,userId) => dispatch => (
 
   export const createListing = (movieId,userId) => dispatch => (
     APIUtil.createListing(movieId,userId).then(list => (
-      dispatch(fetchList(list))
+      dispatch(receiveList(list))
     ))
   );
   
-  export const deleteListing = (movieId,userId) => dispatch => (
-    APIUtil.deleteListing(movieId,userId).then(list => (
-        dispatch(fetchList(list))
+  export const deleteListing = (listId,userId) => dispatch => (
+    APIUtil.deleteListing(listId,userId).then(list => (
+        dispatch(receiveList(list))
     ))
   );

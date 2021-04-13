@@ -1,3 +1,6 @@
+
+/*movie thumbs*/
+
 .movie-index{
     background-color: #141414;
     padding-top: 80px;
@@ -20,34 +23,6 @@
     font-size: 24px;
     margin-top: 50px;
     margin-bottom: 10px;
-}
-
-.index-video-container{
-    width:100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.index-video-container:after{
-    content  : "";
-    position : absolute;
-    display  : block;
-    z-index  : 2;
-    bottom   : 0;
-    left     : 0;
-    pointer-events   : none;
-    width    : 100%;
-    height   : 800px;
-    background:  #141414;
-    background: -webkit-gradient(linear, 0% 0% 0% 100%, from(rgba(150, 123, 19, 0.1)), to(rgba(20, 20, 20, 1)));
-    background: -webkit-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
-    background: -moz-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
-    background: -ms-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
-    background: -o-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
-    bottom: 0;
-    left: 0;
 }
 
 
@@ -130,6 +105,10 @@
     border-radius: 4px;
 }
 
+/*show video*/
+
+
+
 .big-video{
     height: 100%;
     width: 100%;
@@ -156,6 +135,38 @@
     cursor: pointer;
 }
 
+
+
+/* index video */
+
+
+.index-video-container{
+    width:100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.index-video-container:after{
+    content  : "";
+    position : absolute;
+    display  : block;
+    z-index  : 2;
+    bottom   : 0;
+    left     : 0;
+    pointer-events   : none;
+    width    : 100%;
+    height   : 800px;
+    background:  #141414;
+    background: -webkit-gradient(linear, 0% 0% 0% 100%, from(rgba(150, 123, 19, 0.1)), to(rgba(20, 20, 20, 1)));
+    background: -webkit-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
+    background: -moz-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
+    background: -ms-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
+    background: -o-linear-gradient(top, rgba(150, 123, 19, 0), rgba(20, 20, 20, 1));
+    bottom: 0;
+    left: 0;
+}
 .spiderverse-logo{
     position: absolute;
     width: 350px;
@@ -205,6 +216,7 @@
     font-family: 'Open Sans', sans-serif;
 }
 
+/*play button*/
 .index-play:hover{
     opacity: 0.8;
 }
@@ -220,6 +232,8 @@
     padding-right: 20px;
     padding-left: 12px;
 }
+
+/*mute button*/
 
 .muteButton{
     position: absolute;
@@ -239,4 +253,27 @@
 
 .muteButton .material-icons{
     font-size: 40px;
+}
+
+
+/* mylist button */
+.mylist-button{
+    position: absolute;
+    top: 505px;
+    left: 270px;
+    color: white;
+    z-index: 2;
+    border-radius: 50%;
+    border: 3px solid white;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+
+.mylist-button:hover{
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.212);
+}
+
+.mylist-button .material-icons{
+    font-size: 45px;
 }
