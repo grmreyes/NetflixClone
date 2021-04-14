@@ -16,12 +16,25 @@ class DropdownMenu extends React.Component {
 
     render(){
     return (
-        <div className="dropdown-menu">
-            <ul className="dropdown-links">
-            </ul>
-            <ul className="dropdown-logout">
-            <button onClick={this.handleLogout} className="logout">hello</button>
-            </ul>
+        <div className="dropdown-container">
+            <div className="arrow-up"></div>
+            <div className="dropdown-menu">
+                <ul className="dropdown-links">
+                    <li><a href="https://github.com/grmreyes/">
+                            <img src={window.github} className="dropdown-icon"/>
+                            <div className="link-text">Github</div>
+                        </a>
+                    </li>
+                    <li><a href="mailto:grmreyes@gmail.com/">
+                        <img src={window.email} className="dropdown-icon"/>
+                        <div className="link-text">Email me</div>
+                        </a>
+                    </li>
+                </ul>
+                <ul className="dropdown-logout">
+                    <li onClick={this.handleLogout} className="logout">Sign out of Nicflix</li>
+                </ul>
+            </div>
         </div>
     );
     }

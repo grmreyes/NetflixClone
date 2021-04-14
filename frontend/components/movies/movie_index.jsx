@@ -20,7 +20,7 @@ class MovieIndex extends React.Component{
     componentDidMount(){
         this.props.fetchMovies()
         this.props.fetchList({userId: this.props.userId})
-
+        window.scrollTo(0, 0);
         
         if(window.profHidden===true){
             this.hideProf()

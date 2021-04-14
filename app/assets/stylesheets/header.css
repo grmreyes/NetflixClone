@@ -37,20 +37,7 @@
     height: auto;
 }
 
-.logout{
-    text-align: center;
-    font-family: 'Open Sans', sans-serif;
-    position: absolute;
-    top: 50%;
-    transform: translatey(-50%);
-    left: 93%;
-    background-color: #e50914;
-    width: 85px;
-    height: 35px;
-    color: white;
-    border-style: none;
-    border-radius: 5px;
-}
+
 
 .logout:hover{
     cursor: pointer;
@@ -146,6 +133,21 @@
     color: white;
 }
 
+
+
+/*dropdown */
+
+.dropdown-container{
+    display:none;
+    position: absolute;
+    top: 50px;
+    right: 120px;
+    flex-direction: column;
+    justify-content: center;
+    width: 150px;
+    height: 230px;
+    transition: all 0.5s;
+}
 .dropdown-button{
     border-radius: 6px;
     width: 35px;
@@ -159,3 +161,62 @@
 .dropdown-button:hover{
     cursor: pointer;
 }
+
+.dropdown-button-container:hover .dropdown-container{
+    display: flex;
+}
+
+.dropdown-menu{
+    position: absolute;
+    top: 30px;
+    right: 0px;
+    z-index: 11;
+    width: 150px;
+    height: 200px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 0.5px solid gray
+}
+
+.dropdown-logout{
+    position: relative;
+    top: 70px;
+    border-top: 0.5px solid gray;
+}
+
+.dropdown-menu li{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    margin: 10px;
+}
+
+.dropdown-menu a{
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu li:hover{
+    text-decoration: underline;
+}
+
+.link-text{
+    margin-left: 10px;
+}
+
+.arrow-up {
+    position: absolute;
+    top: 20px;
+    right: 23px;
+    width: 0; 
+    height: 0; 
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid white;
+  }
+
+  .dropdown-icon{
+      height: 25px;
+      width: auto;
+      top: 10px;
+  }
