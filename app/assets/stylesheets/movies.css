@@ -21,7 +21,6 @@
 
 .row-heading h1{
     font-size: 24px;
-    margin-top: 50px;
     margin-bottom: 10px;
 }
 
@@ -46,25 +45,34 @@
     border-radius: 4px;
 }
 
+
+
+.movie-thumb-row h2{
+    font-size: 12px;
+    margin-top: 7px;
+}
+
+.movie-thumb-row h3{
+    font-size: 8px;
+    margin-top: 7px;
+}
+
+.movie-thumb-row h1{
+    font-size: 14px;
+    padding-top: 20px;
+}
+
+.movie-thumb-row h3 strong{
+    border: 1px solid white;
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
 .movie-thumb-container{
     transition: transform 1s ;
     border-radius: 4px;
     margin: 2px;
     height: auto;
-}
-
-.movie-thumb-row h2{
-    font-size: 12px;
-    margin-top: 2px;
-}
-
-.movie-thumb-row h3{
-    font-size: 8px;
-    margin-top: 2px;
-}
-
-.movie-thumb-row strong{
-    border: 1px solid white;
 }
 
 .movie-thumb-container:hover{
@@ -80,11 +88,12 @@
 
 .thumb-info{
     opacity: 0;
-    padding:5px;
+    padding:15px;
+    padding-left: 25px
 }
 
 .movie-thumb-container-last{
-    transition: all 1s ;
+    transition: transform 1s ;
     border-radius: 4px;
     margin: 2px;
     height: auto;
@@ -93,11 +102,14 @@
 .movie-thumb-container-last:hover{
     transform: scale(1.5) translate(-40px, 0px);
     z-index: 2;
-    z-index: 2;
     background-color: #1d1d1d;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-
 }
+
+.movie-thumb-container-last:hover .thumb-info{
+    opacity: 1;
+}
+
 
 .thumb-vid{
     height: auto;
@@ -256,8 +268,8 @@
 }
 
 
-/* mylist button */
-.mylist-button{
+/* mylist button index video*/
+.movie-index>.mylist-button{
     position: absolute;
     top: 505px;
     left: 270px;
@@ -269,11 +281,57 @@
 
 }
 
-.mylist-button:hover{
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.212);
+
+
+.movie-index>.mylist-button .material-icons{
+    font-size: 45px;
 }
 
-.mylist-button .material-icons{
-    font-size: 45px;
+/* mylist button thumb*/
+.thumb-buttons .mylist-button{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 67%;
+    left: 16%;
+    color: white;
+    z-index: 2;
+    border-radius: 50%;
+    border: 1px solid gray;
+    background-color: rgba(255, 255, 255, 0);
+
+}
+
+.mylist-button:hover{
+    cursor: pointer;
+    border-color: white;
+}
+.thumb-buttons .mylist-button .material-icons{
+    font-size: 18px;
+}
+
+
+/* thumb play button*/
+.thumb-buttons .thumb-play{
+    position: absolute;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    top: 67%;
+    left: 8%;
+    color:  #1d1d1d;
+    z-index: 2;
+    border-radius: 50%;
+    border: 1px solid white;
+    background-color: white
+
+}
+
+.thumb-play:hover{
+    cursor: pointer;
+    opacity: 0.9;
+}
+.thumb-buttons .thumb-play .material-icons{
+    font-size: 18px;
 }

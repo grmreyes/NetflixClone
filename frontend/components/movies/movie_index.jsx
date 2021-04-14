@@ -130,10 +130,10 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Action"><h1>Action</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesAction.slice(0,5).map((movie) => (
-                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb genre="action" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesAction.slice(5,6).map((movie) => (
-                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast genre="action" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>
@@ -141,10 +141,10 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Comedy"><h1>Comedy</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesComedy.slice(0,5).map((movie) => (
-                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb genre="comedy" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesComedy.slice(5,6).map((movie) => (
-                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast genre="comedy" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>
@@ -152,10 +152,10 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Family"><h1>Family</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesFamily.slice(0,5).map((movie) => (
-                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb genre="family" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesFamily.slice(5,6).map((movie) => (
-                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast genre="family" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>
@@ -163,10 +163,10 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Action"><h1>Romance</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesRomance.slice(0,5).map((movie) => (
-                            <MovieThumb forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb genre="romance" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesRomance.slice(5,6).map((movie) => (
-                            <MovieThumbLast forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast genre="romance" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>

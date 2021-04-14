@@ -865,11 +865,13 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesAction.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          genre: "action",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesAction.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          genre: "action",
           forceMute: _this2.forceMute,
           movie: movie
         });
@@ -880,11 +882,13 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesComedy.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          genre: "comedy",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesComedy.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          genre: "comedy",
           forceMute: _this2.forceMute,
           movie: movie
         });
@@ -895,11 +899,13 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesFamily.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          genre: "family",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesFamily.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          genre: "family",
           forceMute: _this2.forceMute,
           movie: movie
         });
@@ -910,11 +916,13 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesRomance.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          genre: "romance",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesRomance.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          genre: "romance",
           forceMute: _this2.forceMute,
           movie: movie
         });
@@ -1154,7 +1162,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _mylist_button_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mylist_button_container */ "./frontend/components/movies/mylist_button_container.jsx");
+/* harmony import */ var _thumb_play_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./thumb_play_button */ "./frontend/components/movies/thumb_play_button.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1180,39 +1190,56 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var MovieThumb = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieThumb, _React$Component);
 
   var _super = _createSuper(MovieThumb);
 
   function MovieThumb(props) {
+    var _this;
+
     _classCallCheck(this, MovieThumb);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.handleEnter = _this.handleEnter.bind(_assertThisInitialized(_this));
+    _this.handleLeave = _this.handleLeave.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(MovieThumb, [{
+    key: "handleEnter",
+    value: function handleEnter() {
+      this.idString = "#".concat(this.props.genre).concat(this.props.movie.id);
+      var thumbVid = document.querySelector(this.idString);
+      thumbVid.play();
+      var indexVid = document.querySelector(".index-video");
+
+      if (indexVid.muted === false) {
+        this.props.forceMute();
+      }
+    }
+  }, {
+    key: "handleLeave",
+    value: function handleLeave() {
+      this.idString = "#".concat(this.props.genre).concat(this.props.movie.id);
+      var thumbVid = document.querySelector(this.idString);
+      thumbVid.load();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var forceMute = this.props.forceMute;
-      $(document).ready(function () {
-        $(".thumb-vid").on("mouseover", function (event) {
-          this.play();
-          var vid = document.querySelector(".index-video");
-
-          if (vid.muted === false) {
-            forceMute();
-          }
-        }).on('mouseout', function (event) {
-          this.load();
-        });
-      });
+      this.idString = this.props.genre.concat(this.props.movie.id);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        className: "movie-thumb-container"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        className: "movie-thumb-container",
+        onMouseEnter: this.handleEnter,
+        onMouseLeave: this.handleLeave
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
         to: "/movies/".concat(this.props.movie.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
-        className: "thumb-vid",
+        className: "thumb-vid thumb",
+        id: this.idString,
         poster: this.props.movie.photo_url
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
         src: this.props.movie.video_url,
@@ -1221,7 +1248,11 @@ var MovieThumb = /*#__PURE__*/function (_React$Component) {
         className: "thumb-info"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "thumb-buttons"
-      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.props.movie.rating), "   ", this.props.movie.runtime), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.movie.genres[0].name, this.props.movie.genres.length > 1 ? " | " + this.props.movie.genres[1].name : "")));
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_thumb_play_button__WEBPACK_IMPORTED_MODULE_2__.default, {
+        movieId: this.props.movie.id
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mylist_button_container__WEBPACK_IMPORTED_MODULE_1__.default, {
+        movieId: this.props.movie.id
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.movie.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.props.movie.rating), "   ", this.props.movie.runtime), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.movie.genres[0].name, this.props.movie.genres.length > 1 ? " | " + this.props.movie.genres[1].name : "")));
     }
   }]);
 
@@ -1244,7 +1275,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+/* harmony import */ var _mylist_button_container__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./mylist_button_container */ "./frontend/components/movies/mylist_button_container.jsx");
+/* harmony import */ var _thumb_play_button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./thumb_play_button */ "./frontend/components/movies/thumb_play_button.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1270,40 +1303,69 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
+
 var MovieThumbLast = /*#__PURE__*/function (_React$Component) {
   _inherits(MovieThumbLast, _React$Component);
 
   var _super = _createSuper(MovieThumbLast);
 
   function MovieThumbLast(props) {
+    var _this;
+
     _classCallCheck(this, MovieThumbLast);
 
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.handleEnter = _this.handleEnter.bind(_assertThisInitialized(_this));
+    _this.handleLeave = _this.handleLeave.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(MovieThumbLast, [{
+    key: "handleEnter",
+    value: function handleEnter() {
+      this.idString = "#".concat(this.props.genre).concat(this.props.movie.id);
+      var thumbVid = document.querySelector(this.idString);
+      thumbVid.play();
+      var indexVid = document.querySelector(".index-video");
+
+      if (indexVid.muted === false) {
+        this.props.forceMute();
+      }
+    }
+  }, {
+    key: "handleLeave",
+    value: function handleLeave() {
+      this.idString = "#".concat(this.props.genre).concat(this.props.movie.id);
+      var thumbVid = document.querySelector(this.idString);
+      thumbVid.load();
+    }
+  }, {
     key: "render",
     value: function render() {
-      var forceMute = this.props.forceMute;
-      $(document).ready(function () {
-        $(".thumb-vid").on("mouseover", function (event) {
-          this.play();
-          forceMute();
-        }).on('mouseout', function (event) {
-          this.load();
-        });
-      });
+      this.idString = this.props.genre.concat(this.props.movie.id);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
-        className: "movie-thumb-container-last"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        className: "movie-thumb-container-last",
+        onMouseEnter: this.handleEnter,
+        onMouseLeave: this.handleLeave
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
         to: "/movies/".concat(this.props.movie.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
-        className: "thumb-vid",
+        className: "thumb-vid thumb",
+        id: this.idString,
         poster: this.props.movie.photo_url
       }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
         src: this.props.movie.video_url,
         type: "video/mp4"
-      }), " ")));
+      }), " ")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "thumb-info"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+        className: "thumb-buttons"
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_thumb_play_button__WEBPACK_IMPORTED_MODULE_2__.default, {
+        movieId: this.props.movie.id
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_mylist_button_container__WEBPACK_IMPORTED_MODULE_1__.default, {
+        movieId: this.props.movie.id
+      })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, this.props.movie.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h3", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", null, this.props.movie.rating), "   ", this.props.movie.runtime), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h2", null, this.props.movie.genres[0].name, this.props.movie.genres.length > 1 ? " | " + this.props.movie.genres[1].name : "")));
     }
   }]);
 
@@ -1500,6 +1562,37 @@ function PlayButton() {
 
 /***/ }),
 
+/***/ "./frontend/components/movies/thumb_play_button.jsx":
+/*!**********************************************************!*\
+  !*** ./frontend/components/movies/thumb_play_button.jsx ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
+
+
+
+function ThumbPlayButton(props) {
+  var url = "/movies/".concat(props.movieId);
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+    to: url
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "thumb-play"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("strong", {
+    className: "material-icons"
+  }, "play_arrow")));
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ThumbPlayButton);
+
+/***/ }),
+
 /***/ "./frontend/components/root.jsx":
 /*!**************************************!*\
   !*** ./frontend/components/root.jsx ***!
@@ -1655,30 +1748,36 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.searchedMovies.length < 1 ? 'No results found.' : '', this.searchedMovies.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          genre: "mylist",
           movie: movie
         });
       }), this.searchedMovies.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          genre: "mylist",
           movie: movie
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.searchedMovies.slice(6, 11).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          genre: "mylist",
           movie: movie
         });
       }), this.searchedMovies.slice(11, 12).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          genre: "mylist",
           movie: movie
         });
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.searchedMovies.slice(12, 17).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          genre: "mylist",
           movie: movie
         });
       }), this.searchedMovies.slice(17, 18).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          genre: "mylist",
           movie: movie
         });
       }))));

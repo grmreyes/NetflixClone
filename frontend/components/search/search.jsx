@@ -75,26 +75,26 @@ class SearchResults extends React.Component{
                     <ul className="movie-thumb-row">
                         {this.searchedMovies.length<1? 'No results found.': ''}
                         {this.searchedMovies.slice(0,5).map((movie) => (
-                            <MovieThumb movie={movie}/>))
+                            <MovieThumb genre="mylist" movie={movie}/>))
                         }
                         {this.searchedMovies.slice(5,6).map((movie) => (
-                            <MovieThumbLast movie={movie}/>))
+                            <MovieThumbLast genre="mylist" movie={movie}/>))
                         }
                     </ul>
                     <ul className="movie-thumb-row">
                         {this.searchedMovies.slice(6,11).map((movie) => (
-                            <MovieThumb movie={movie}/>))
+                            <MovieThumb genre="mylist" movie={movie}/>))
                         }
                         {this.searchedMovies.slice(11,12).map((movie) => (
-                            <MovieThumbLast movie={movie}/>))
+                            <MovieThumbLast genre="mylist" movie={movie}/>))
                         }
                     </ul>
                     <ul className="movie-thumb-row">
                         {this.searchedMovies.slice(12,17).map((movie) => (
-                            <MovieThumb movie={movie}/>))
+                            <MovieThumb genre="mylist" movie={movie}/>))
                         }
                         {this.searchedMovies.slice(17,18).map((movie) => (
-                            <MovieThumbLast movie={movie}/>))
+                            <MovieThumbLast genre="mylist" movie={movie}/>))
                         }
                     </ul>
                 </div>
