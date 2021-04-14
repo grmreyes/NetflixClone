@@ -145,3 +145,17 @@
     z-index: 5;
     color: white;
 }
+
+.dropdown-button{
+    border-radius: 6px;
+    width: 35px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    right: 7%;
+    transform: translatey(-50%);
+}
+
+.dropdown-button:hover{
+    cursor: pointer;
+}

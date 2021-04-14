@@ -1,7 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-//<li className="nav-link"><Link to="/browse">My List</Link></li>
+
 function NavLinks() {
     return (
       <ul className="nav-links-container">

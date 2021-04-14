@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import NavLinks from './nav_links'
 import SearchBar from './search_bar'
+import DropdownButton from './dropdown_button'
 
 class Header extends React.Component {
     constructor(props){
@@ -16,13 +17,9 @@ class Header extends React.Component {
             $('#navbar').removeClass('header-trans').addClass('header');
           }
         });
-        this.handleLogout = this.handleLogout.bind(this)
     }
 
-    handleLogout(){
-      window.profHidden = false;
-      this.props.logout();
-    } 
+
 
   render() {
 
@@ -35,7 +32,7 @@ class Header extends React.Component {
             </Link>
             <NavLinks />
             <SearchBar history={this.props.history}/>
-            <button onClick={this.handleLogout} className="logout">Log Out</button>
+            <DropdownButton/>
         </div>
 
     );
