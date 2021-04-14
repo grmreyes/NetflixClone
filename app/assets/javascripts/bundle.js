@@ -999,6 +999,7 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "index-video-container"
       }, this.moviesAction.slice(0, 1).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("video", {
+          key: "feature-video",
           loop: true,
           className: "index-video"
         }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("source", {
@@ -1026,12 +1027,14 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesAction.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          key: movie.title.concat("action"),
           genre: "action",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesAction.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          key: movie.title.concat("action"),
           genre: "action",
           forceMute: _this2.forceMute,
           movie: movie
@@ -1043,12 +1046,14 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesComedy.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          key: movie.title.concat("comedy"),
           genre: "comedy",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesComedy.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          key: movie.title.concat("comedy"),
           genre: "comedy",
           forceMute: _this2.forceMute,
           movie: movie
@@ -1060,29 +1065,33 @@ var MovieIndex = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.moviesFamily.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          key: movie.title.concat("family"),
           genre: "family",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesFamily.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          key: movie.title.concat("family"),
           genre: "family",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_7__.Link, {
         className: "row-heading",
-        to: "browse/Action"
+        to: "browse/Romance"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("h1", null, "Romance")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("ul", {
         className: "movie-thumb-row"
       }, this.moviesRomance.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          key: movie.title.concat("romance"),
           genre: "romance",
           forceMute: _this2.forceMute,
           movie: movie
         });
       }), this.moviesRomance.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          key: movie.title.concat("romance"),
           genre: "romance",
           forceMute: _this2.forceMute,
           movie: movie
@@ -1377,8 +1386,10 @@ var MovieThumb = /*#__PURE__*/function (_React$Component) {
       thumbVid.play();
       var indexVid = document.querySelector(".index-video");
 
-      if (indexVid.muted === false) {
-        this.props.forceMute();
+      if (indexVid) {
+        if (indexVid.muted === false) {
+          this.props.forceMute();
+        }
       }
     }
   }, {
@@ -1393,6 +1404,7 @@ var MovieThumb = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       this.idString = this.props.genre.concat(this.props.movie.id);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        key: this.idString,
         className: "movie-thumb-container",
         onMouseEnter: this.handleEnter,
         onMouseLeave: this.handleLeave
@@ -1490,8 +1502,10 @@ var MovieThumbLast = /*#__PURE__*/function (_React$Component) {
       thumbVid.play();
       var indexVid = document.querySelector(".index-video");
 
-      if (indexVid.muted === false) {
-        this.props.forceMute();
+      if (indexVid) {
+        if (indexVid.muted === false) {
+          this.props.forceMute();
+        }
       }
     }
   }, {
@@ -1506,6 +1520,7 @@ var MovieThumbLast = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       this.idString = this.props.genre.concat(this.props.movie.id);
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("li", {
+        key: this.idString,
         className: "movie-thumb-container-last",
         onMouseEnter: this.handleEnter,
         onMouseLeave: this.handleLeave
@@ -1946,11 +1961,13 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.searchedMovies.length < 1 ? 'No results found.' : '', this.searchedMovies.slice(0, 5).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          key: movie.title.concat("search"),
           genre: "mylist",
           movie: movie
         });
       }), this.searchedMovies.slice(5, 6).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          key: movie.title.concat("search"),
           genre: "mylist",
           movie: movie
         });
@@ -1958,11 +1975,13 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.searchedMovies.slice(6, 11).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          key: movie.title.concat("search"),
           genre: "mylist",
           movie: movie
         });
       }), this.searchedMovies.slice(11, 12).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          key: movie.title.concat("search"),
           genre: "mylist",
           movie: movie
         });
@@ -1970,11 +1989,13 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
         className: "movie-thumb-row"
       }, this.searchedMovies.slice(12, 17).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb__WEBPACK_IMPORTED_MODULE_1__.default, {
+          key: movie.title.concat("search"),
           genre: "mylist",
           movie: movie
         });
       }), this.searchedMovies.slice(17, 18).map(function (movie) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_movies_movie_thumb_last__WEBPACK_IMPORTED_MODULE_2__.default, {
+          key: movie.title.concat("search"),
           genre: "mylist",
           movie: movie
         });
@@ -2899,7 +2920,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return (0,redux__WEBPACK_IMPORTED_MODULE_3__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__.default, preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_3__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_0__.default, (redux_logger__WEBPACK_IMPORTED_MODULE_1___default())));
+  return (0,redux__WEBPACK_IMPORTED_MODULE_3__.createStore)(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__.default, preloadedState, (0,redux__WEBPACK_IMPORTED_MODULE_3__.applyMiddleware)(redux_thunk__WEBPACK_IMPORTED_MODULE_0__.default));
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (configureStore);

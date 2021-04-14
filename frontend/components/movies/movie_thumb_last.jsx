@@ -16,9 +16,10 @@ class MovieThumbLast extends React.Component{
     let thumbVid = document.querySelector(this.idString);
     thumbVid.play();
     let indexVid = document.querySelector(".index-video");
-    if(indexVid.muted===false){
+    if(indexVid){
+      if(indexVid.muted===false){
       this.props.forceMute();
-    }
+    }}
   }
 
   handleLeave(){
@@ -31,7 +32,7 @@ class MovieThumbLast extends React.Component{
     this.idString = this.props.genre.concat(this.props.movie.id)
 
     return(
-      <li className="movie-thumb-container-last" onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
+      <li key={this.idString} className="movie-thumb-container-last" onMouseEnter={this.handleEnter} onMouseLeave={this.handleLeave}>
         <Link to={`/movies/${this.props.movie.id}`}>
           <video className="thumb-vid thumb" id={this.idString} poster={this.props.movie.photo_url}> <source src={this.props.movie.video_url}  type="video/mp4" /> </video> 
         </Link>

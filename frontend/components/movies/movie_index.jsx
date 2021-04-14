@@ -112,7 +112,7 @@ class MovieIndex extends React.Component{
                 {window.profHiddden? "": <ProfileGuard />}
                 <div className="index-video-container">
                     {this.moviesAction.slice(0,1).map((movie) => (
-                            <video loop className="index-video"> <source src={movie.big_video_url} type="video/mp4" /> </video> ))
+                            <video key="feature-video" loop className="index-video"> <source src={movie.big_video_url} type="video/mp4" /> </video> ))
                     }
                 </div>
                 <img src={window.spiderverse} className="spiderverse-logo" />
@@ -131,10 +131,10 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Action"><h1>Action</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesAction.slice(0,5).map((movie) => (
-                            <MovieThumb genre="action" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb key={movie.title.concat("action")} genre="action" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesAction.slice(5,6).map((movie) => (
-                            <MovieThumbLast genre="action" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast key={movie.title.concat("action")} genre="action" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>
@@ -142,10 +142,10 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Comedy"><h1>Comedy</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesComedy.slice(0,5).map((movie) => (
-                            <MovieThumb genre="comedy" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb key={movie.title.concat("comedy")} genre="comedy" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesComedy.slice(5,6).map((movie) => (
-                            <MovieThumbLast genre="comedy" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast key={movie.title.concat("comedy")} genre="comedy" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>
@@ -153,21 +153,21 @@ class MovieIndex extends React.Component{
                     <Link className="row-heading" to="browse/Family"><h1>Family</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesFamily.slice(0,5).map((movie) => (
-                            <MovieThumb genre="family" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb key={movie.title.concat("family")} genre="family" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesFamily.slice(5,6).map((movie) => (
-                            <MovieThumbLast genre="family" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast key={movie.title.concat("family")} genre="family" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>
                     <div>
-                    <Link className="row-heading" to="browse/Action"><h1>Romance</h1></Link>
+                    <Link className="row-heading" to="browse/Romance"><h1>Romance</h1></Link>
                     <ul className="movie-thumb-row">
                         {this.moviesRomance.slice(0,5).map((movie) => (
-                            <MovieThumb genre="romance" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumb key={movie.title.concat("romance")} genre="romance" forceMute={this.forceMute} movie={movie}/>))
                         }
                         {this.moviesRomance.slice(5,6).map((movie) => (
-                            <MovieThumbLast genre="romance" forceMute={this.forceMute} movie={movie}/>))
+                            <MovieThumbLast key={movie.title.concat("romance")} genre="romance" forceMute={this.forceMute} movie={movie}/>))
                         }
                     </ul>
                     </div>
