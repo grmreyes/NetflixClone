@@ -1,11 +1,7 @@
 import React from 'react';
-import {
-    Link,
-  } from 'react-router-dom';
+import {Link,Route} from 'react-router-dom';
 import GreetingContainer from './greeting_container'
-import {
-    Route,
-   } from 'react-router-dom';
+import Footer from '../plugs/footer'
 
 class Splash extends React.Component {
     constructor(props){
@@ -18,7 +14,7 @@ class Splash extends React.Component {
         return (
         <div className="splash-container">
             <div className="splash-main">
-                <img src={window.logo} className="splash-logo"/>
+                
                 <Link className="splash-signin" to="/signin">Sign In</Link>
                 <Route exact path="/" handleDemo={this.handleDemo} component ={GreetingContainer}/>
             </div>
@@ -49,7 +45,9 @@ class Splash extends React.Component {
                 </div>
                 <img src={window.splash3}/>             
             </div>
+            <Footer />
         </div>
+        
         );
     }
     }

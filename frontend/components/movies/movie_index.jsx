@@ -5,6 +5,7 @@ import MovieThumbLast from './movie_thumb_last';
 import ProfileGuard from '../splash/profile_guard';
 import PlayButton from './play_button';
 import MyListButtonContainer from './mylist_button_container';
+import Footer from '../plugs/footer'
 
 
 
@@ -171,6 +172,7 @@ class MovieIndex extends React.Component{
                     </ul>
                     </div>
                 </div>
+                <Footer />
             </div>
 
         )
