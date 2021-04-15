@@ -24,7 +24,7 @@ Highlighted Features and Code
 
 *Using a combination of Javascript and CSS, the movie thumbnails expand, play a preview, and show further information about the movie when moused over by the user.*
 
-![Hover Playback](https://github.com/grmreyes/nicflix/blob/main/app/assets/images/search-small.gif)
+![Hover Playback](https://github.com/grmreyes/nicflix/blob/main/app/assets/images/hover-small.gif)
 
 ### Javascript
 ```javascript
