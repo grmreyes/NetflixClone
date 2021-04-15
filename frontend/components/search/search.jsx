@@ -21,12 +21,14 @@ class SearchResults extends React.Component{
             trimmed = trimmed.replaceAll("-", "");
             trimmed = trimmed.replaceAll("'", "");
             trimmed = trimmed.replaceAll(":", "");
+            trimmed = trimmed.replaceAll("/", "");
             trimmed = trimmed.toLowerCase();
             //trim movie title
             let trimTitle = movie.title.replaceAll(/\s/g, "");
             trimTitle = trimTitle.replaceAll("-", "");
             trimTitle = trimTitle.replaceAll("'", "");
             trimTitle = trimTitle.replaceAll(":", "");
+            trimTitle = trimTitle.replaceAll("/", "");
             trimTitle = trimTitle.toLowerCase();
             //lowercase description
             let lowerDescription = movie.description.toLowerCase()
