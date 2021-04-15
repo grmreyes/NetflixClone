@@ -24,7 +24,7 @@ Highlighted Features and Code
 
 *Using a combination of Javascript and CSS, the movie thumbnails expand, play a preview, and show further information about the movie when moused over by the user.*
 
-![Hover Playback](https://nicflix-dev.s3-us-west-1.amazonaws.com/readme/hover.gif "Hover Playback")
+![Hover Playback](https://nicflix-dev.s3-us-west-1.amazonaws.com/readme/hover-small.gif "Hover Playback")
 
 ### Javascript
 ```javascript
@@ -72,7 +72,7 @@ handleEnter(){
 
 *Utilizes React Component Routes and passing the search term as the wildcard for the url enables results to show in real time. In searching for matches, search term is trimmed of spaces and special characters and can be matched with either the genre, a partial match with the title, or 'mylist' if it is part of the user-created list of movies.*
 
-![Search](https://nicflix-dev.s3-us-west-1.amazonaws.com/readme/search.gif "Search")
+![Search](https://nicflix-dev.s3-us-west-1.amazonaws.com/readme/search-small.gif "Search")
 
 ### React Component Routes for Instant Searching
 
