@@ -15,7 +15,6 @@ export const receiveMovie = ({ movie }) => ({
 });
 
 
-//add search params here
 export const fetchMovies = () => dispatch => (
   APIUtil.fetchMovies().then(movies => (
     dispatch(receiveMovies(movies))

@@ -40,5 +40,3 @@ class Header extends React.Component {
 }
 
 export default Header;
-
-// for username: <h2>{this.props.currentUser.username}!</h2>

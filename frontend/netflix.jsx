@@ -25,15 +25,3 @@ document.addEventListener('DOMContentLoaded', () => {
   ReactDOM.render(<Root store={store} />, root);
 });
 
-
-
-
-
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   const root = document.getElementById("root");
-//   let store = configureStore();
-//   window.store = store;
-  
-//   ReactDOM.render(<Root store={store}/>, root);
-// });

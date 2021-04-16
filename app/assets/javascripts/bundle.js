@@ -184,8 +184,7 @@ var receiveMovie = function receiveMovie(_ref) {
     type: RECEIVE_MOVIE,
     movie: movie
   };
-}; //add search params here
-
+};
 var fetchMovies = function fetchMovies() {
   return function (dispatch) {
     return _util_movie_api_util__WEBPACK_IMPORTED_MODULE_0__.fetchMovies().then(function (movies) {
@@ -597,7 +596,7 @@ var Header = /*#__PURE__*/function (_React$Component) {
   return Header;
 }(react__WEBPACK_IMPORTED_MODULE_0__.Component);
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header); // for username: <h2>{this.props.currentUser.username}!</h2>
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
 
 /***/ }),
 
@@ -1906,12 +1905,14 @@ var SearchResults = /*#__PURE__*/function (_React$Component) {
         trimmed = trimmed.replaceAll("-", "");
         trimmed = trimmed.replaceAll("'", "");
         trimmed = trimmed.replaceAll(":", "");
+        trimmed = trimmed.replaceAll("/", "");
         trimmed = trimmed.toLowerCase(); //trim movie title
 
         var trimTitle = movie.title.replaceAll(/\s/g, "");
         trimTitle = trimTitle.replaceAll("-", "");
         trimTitle = trimTitle.replaceAll("'", "");
         trimTitle = trimTitle.replaceAll(":", "");
+        trimTitle = trimTitle.replaceAll("/", "");
         trimTitle = trimTitle.toLowerCase(); //lowercase description
 
         var lowerDescription = movie.description.toLowerCase(); //mylist
@@ -2593,7 +2594,10 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splash-container"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
         className: "splash-main"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        src: window.logo,
+        className: "splash-logo"
+      }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Link, {
         className: "splash-signin",
         to: "/signin"
       }, "Sign In"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__.Route, {
@@ -2873,7 +2877,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
- //import { RECEIVE_REVIEW, RECEIVE_BENCH } from '../actions/bench_actions';
+
 
 var usersReducer = function usersReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -2883,10 +2887,6 @@ var usersReducer = function usersReducer() {
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__.RECEIVE_CURRENT_USER:
       return Object.assign({}, state, _defineProperty({}, action.currentUser.id, action.currentUser));
-    //    case RECEIVE_REVIEW:
-    //      return Object.assign({}, state, { [action.author.id]: action.author });
-    //   case RECEIVE_BENCH:
-    //      return Object.assign({}, state, action.authors);
 
     default:
       return state;
@@ -39563,12 +39563,7 @@ document.addEventListener('DOMContentLoaded', function () {
   react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_root__WEBPACK_IMPORTED_MODULE_2__.default, {
     store: store
   }), root);
-}); // document.addEventListener("DOMContentLoaded", () => {
-//   const root = document.getElementById("root");
-//   let store = configureStore();
-//   window.store = store;
-//   ReactDOM.render(<Root store={store}/>, root);
-// });
+});
 })();
 
 /******/ })()
