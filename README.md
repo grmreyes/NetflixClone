@@ -22,7 +22,7 @@ Highlighted Features and Code
 * Featured movie playback in background
 * Preview playback and more information on hover
 
-*Using a combination of Javascript and CSS, the movie thumbnails expand, play a preview, and show further information about the movie when moused over by the user.*
+*Using a combination of Javascript and CSS, the movie thumbnails expand, play a preview, and show further information about the movie when moused over by the user. This is accomplished by using CSS to enlarge the thumbnail and show the movie's information (runtime, mpaa rating, and genres) while javascript handles the playback, stopping, and muting of the background movie video.*
 
 ![Hover Playback](https://github.com/grmreyes/nicflix/blob/main/app/assets/images/hover-small.gif)
 
@@ -70,7 +70,7 @@ handleEnter(){
 * Allows users to search for titles, keywords, genres, and mylist
 * Searches even with incomplete search terms
 
-*Utilizes React Component Routes and passing the search term as the wildcard for the url enables results to show in real time. In searching for matches, search term is trimmed of spaces and special characters and can be matched with either the genre, a partial match with the title, or 'mylist' if it is part of the user-created list of movies.*
+*Utilizing React Component Routes and passing the search term as the wildcard for the url enables results to show in real time. In searching for matches, the search term is trimmed of spaces and special characters and can be matched with either the genre, a full or partial match with the title, or 'mylist' if it is part of the user-created list of movies.This format saves code rewriting by basically using the same component for three separate features of the app.*
 
 ![Search](https://github.com/grmreyes/nicflix/blob/main/app/assets/images/search-small.gif)
 
