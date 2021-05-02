@@ -1,7 +1,6 @@
 .footer{
-    display:flex;
     position:relative;
-    height: 100px;
+    height: 2vw;
     width:100%;
     bottom: 0px;
     left: 0px;
@@ -9,21 +8,17 @@
     background-color: black;
 }
 
-.footer-link{
-    position: relative;
-    display: inline-block;
-    top: 50%;
-    transform: translateY(-50%);
-    width:50px;
-    height:auto;
-    transition: all 0.2s;
-    margin-left: 20px;
-    margin-right: 20px;
+.footer-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
 }
 
-.footer-link:hover{
-    transform: scale(1.2) translateY(-50%);
+.movie-index .footer-links{
+    background-color: #141414;
 }
+
 
 .movie-index .footer{
     background-color: #141414;
@@ -31,10 +26,12 @@
     top: 2100px;
 }
 
-.footer h1.ginoreyes{
-    font-size: 24px;
-    margin-left: 50px;
-    margin-right: 20px;
-    margin-top: 38px;
+.footer i{
+    color: white;
+    font-size: 2vw;
+    margin: 0.5vw;
 }
 
+.footer i:hover{
+    color: gray;
+}

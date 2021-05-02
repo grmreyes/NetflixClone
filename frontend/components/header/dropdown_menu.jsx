@@ -14,20 +14,36 @@ class DropdownMenu extends React.Component {
         this.props.logout();
     }
 
+
+
+    // <a href="https://github.com/grmreyes/">
+    // <i className="fab fa-github"></i>
+    // </a>
+    // <a href="https://www.linkedin.com/in/grmreyes/">
+    //     <i className="fab fa-linkedin"></i>
+    // </a>
+    // <a href="mailto:grmreyes@gmail.com">
+    //     <i className="far fa-envelope"></i>
+    // </a>
     render(){
     return (
         <div className="dropdown-container">
             <div className="arrow-up"></div>
             <div className="dropdown-menu">
                 <ul className="dropdown-links">
-                    <li><a href="https://github.com/grmreyes/">
-                            <img src={window.github} className="dropdown-icon"/>
-                            <div className="link-text">Github</div>
+                <li><a href="https://github.com/grmreyes/">
+                    <i className="fab fa-github dropdown-icon"></i>
+                            <div className="link-text">GitHub</div>
+                        </a>
+                    </li>
+                    <li><a href="https://www.linkedin.com/in/grmreyes/">
+                    <i className="fab fa-linkedin dropdown-icon"></i>
+                            <div className="link-text">LinkedIn</div>
                         </a>
                     </li>
                     <li><a href="mailto:grmreyes@gmail.com/">
-                        <img src={window.email} className="dropdown-icon"/>
-                        <div className="link-text">Email me</div>
+                        <i className="far fa-envelope dropdown-icon"></i>
+                        <div className="link-text">Email</div>
                         </a>
                     </li>
                 </ul>

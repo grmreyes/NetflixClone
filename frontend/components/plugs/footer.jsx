@@ -7,13 +7,17 @@ import { Link } from 'react-router-dom';
 function Footer(props){
     return (
         <div className="footer">
-            <h1 className="ginoreyes">Gino Reyes</h1>
-            <a href="https://github.com/grmreyes/">
-                <img src={window.github} className="footer-link"/>
-            </a>
-            <a href="mailto:grmreyes@gmail.com/">
-                <img src={window.email} className="footer-link"/>
-            </a>
+            <div className="footer-links">
+                <a href="https://github.com/grmreyes/">
+                <i className="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/grmreyes/">
+                    <i className="fab fa-linkedin"></i>
+                </a>
+                <a href="mailto:grmreyes@gmail.com">
+                    <i className="far fa-envelope"></i>
+                </a>
+            </div>
         </div>
     )
 }
