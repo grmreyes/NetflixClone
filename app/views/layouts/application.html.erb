@@ -4,6 +4,19 @@
     <title>Nicflix</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <meta property="og:title" content="Nicflix" />
+     <meta property='og:image' content="<%= image_url('screenshot.png') %>"/>
+     <meta property="og:description"
+       content="A fully-featured, Nicolas Cage themed, near-identical clone of the Netflix web app.
+(Ruby on Rails, React, Redux, JavaScript, HTML5, CSS3, PostgreSQL)
+
+Utilized a combination of Javascript, CSS, and creativity to perfectly mirror the hover look and functionality of Netflix’s movie thumbnails.
+
+Built a versatile React powered search component that handles user search, browsing by genre, and a CRUD list feature and delivers instant search results to the user."
+     />
+     <meta property="og:url"
+       content="http://projectname.herokuapp.com/"
+     />
     <script type="text/javascript">
       window.splash1 = "<%= image_url('splash1.png') %>";
       window.splash2 = "<%= image_url('splash2.png') %>";
