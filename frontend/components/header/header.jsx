@@ -26,13 +26,17 @@ class Header extends React.Component {
     
     
     return (
-        <div className = "header" id="navbar">        
-            <Link to="/browse">
-              <img src={window.logo} className="header-logo" />
-            </Link>
-            <NavLinks />
-            <SearchBar history={this.props.history}/>
-            <DropdownButton/>
+        <div className = "header" id="navbar">
+            <div className="header-left">       
+              <Link to="/browse">
+                <img src={window.logo} className="header-logo" />
+              </Link>
+              <NavLinks />
+            </div> 
+            <div className="header-right"> 
+              <SearchBar history={this.props.history}/>
+              <DropdownButton/>
+            </div>
         </div>
 
     );

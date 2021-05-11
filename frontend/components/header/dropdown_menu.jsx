@@ -31,17 +31,17 @@ class DropdownMenu extends React.Component {
             <div className="arrow-up"></div>
             <div className="dropdown-menu">
                 <ul className="dropdown-links">
-                <li><a href="https://github.com/grmreyes/">
+                <li><a href="https://github.com/grmreyes/" target="_blank">
                     <i className="fab fa-github dropdown-icon"></i>
                             <div className="link-text">GitHub</div>
                         </a>
                     </li>
-                    <li><a href="https://www.linkedin.com/in/grmreyes/">
+                    <li><a href="https://www.linkedin.com/in/grmreyes/" target="_blank">
                     <i className="fab fa-linkedin dropdown-icon"></i>
                             <div className="link-text">LinkedIn</div>
                         </a>
                     </li>
-                    <li><a href="mailto:grmreyes@gmail.com/">
+                    <li><a href="mailto:grmreyes@gmail.com/" target="_blank">
                         <i className="far fa-envelope dropdown-icon"></i>
                         <div className="link-text">Email</div>
                         </a>

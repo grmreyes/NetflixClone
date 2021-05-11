@@ -4,7 +4,8 @@
 .movie-index{
     background-color: #141414;
     padding-top: 80px;
-    padding-left: 65px;
+    padding-left: 40px;
+    padding-right: 40px;
     height: 2100px;
     color: white;
     font-family: 'Open Sans', sans-serif;
@@ -38,11 +39,12 @@
 .movie-thumb-row{
     display: flex;
     width:100%;
+    justify-content: center;
 }
 
 .movie-thumb{
     height: auto;
-    width: 300px;
+    width: 14vw;
     border-radius: 4px;
 }
 
@@ -114,8 +116,9 @@
 
 .thumb-vid{
     height: auto;
-    width: 300px;
-    height: 168.75px;
+    /* width: 300px; */
+    width: 15vw;
+    height: 8.4375vw;
     border-radius: 4px;
 }
 

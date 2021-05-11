@@ -8,13 +8,13 @@ function Footer(props){
     return (
         <div className="footer">
             <div className="footer-links">
-                <a href="https://github.com/grmreyes/">
+                <a href="https://github.com/grmreyes/" target="_blank">
                 <i className="fab fa-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/grmreyes/">
+                <a href="https://www.linkedin.com/in/grmreyes/" target="_blank">
                     <i className="fab fa-linkedin"></i>
                 </a>
-                <a href="mailto:grmreyes@gmail.com">
+                <a href="mailto:grmreyes@gmail.com" target="_blank">
                     <i className="far fa-envelope"></i>
                 </a>
             </div>
