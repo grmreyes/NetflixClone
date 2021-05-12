@@ -12,6 +12,10 @@ class Splash extends React.Component {
         window.scrollTo(0, 0);
     }
 
+    preloadImages(){
+        
+    }
+
 
 
     render() {
