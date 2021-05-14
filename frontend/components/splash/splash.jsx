@@ -29,8 +29,8 @@ class Splash extends React.Component {
             <div className="item-container">
                 <div className="splash-text">
                     <h1>Put the bunny in the box.</h1>
-                    <h3>Watch on Smart TVs, Playstation, Xbox, </h3>
-                    <h3>Chromecast, Apple TV, Blu-ray players, </h3>
+                    <h3>Watch on Smart TVs, Playstation,</h3>
+                    <h3>Chromecast, Blu-ray players, </h3>
                     <h3>and more.</h3>
                 </div>
                 <img src={window.splash1}/>             

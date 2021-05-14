@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function ThumbPlayButton(props){
     let url = "/movies/".concat(props.movieId)
     return (
-        <Link to={url}>
+        <Link className="thumb-link" to={url}>
             <div className="thumb-play">
                 <strong className="material-icons">
                     play_arrow 

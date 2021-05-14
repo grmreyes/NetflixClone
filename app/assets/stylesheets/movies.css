@@ -64,7 +64,7 @@
 
 .movie-thumb-row h1{
     font-size: 14px;
-    padding-top: 20px;
+    padding-top: 5px;
 }
 
 .movie-thumb-row h3 strong{
@@ -76,6 +76,7 @@
 .movie-thumb-container{
     transition: transform 1s ;
     border-radius: 4px;
+    width: 15vw;
     margin: 2px;
     height: auto;
 }
@@ -99,6 +100,7 @@
 
 .movie-thumb-container-last{
     transition: transform 1s ;
+    width: 15vw;
     border-radius: 4px;
     margin: 2px;
     height: auto;
@@ -298,15 +300,23 @@
     font-size: 45px;
 }
 
+.thumb-buttons{
+    display: flex;
+}
+
+
 /* mylist button thumb*/
 .thumb-buttons .mylist-button{
-    position: absolute;
+    position: relative;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    top: 67%;
-    left: 16%;
+    align-items: center;
+    /* top: 67%;
+    left: 16%; */
     color: white;
+    width: 1vw;
+    height: 1vw;
     z-index: 2;
     border-radius: 50%;
     border: 1px solid gray;
@@ -325,18 +335,25 @@
 
 /* thumb play button*/
 .thumb-buttons .thumb-play{
-    position: absolute;
+    position: relative;
     display:flex;
     flex-direction: column;
     justify-content: center;
-    top: 67%;
-    left: 8%;
+    align-items: center;
+    width: 1vw;
+    height: 1vw;
     color:  #1d1d1d;
     z-index: 2;
     border-radius: 50%;
     border: 1px solid white;
-    background-color: white
+    background-color: white;
+    text-decoration: none;
+    margin-right: 5px;
 
+}
+
+.thumb-link{
+    text-decoration: none;
 }
 
 .thumb-play:hover{
@@ -345,4 +362,5 @@
 }
 .thumb-buttons .thumb-play .material-icons{
     font-size: 18px;
+    text-decoration: none;
 }
